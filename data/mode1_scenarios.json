@@ -1,0 +1,943 @@
+{
+  "mode": "mode_1_sprint",
+  "name": "Quick Cash — Race to the Moon",
+  "description": "Fast-paced financial sprint. 40-second rounds. 3 Business deals per round. First trader to reach $500,000 wins!",
+  "startingCapital": 100000,
+  "targetCapital": 500000,
+  "maxRounds": 10,
+  "timerSeconds": 40,
+  "rounds": [
+    {
+      "round": 1,
+      "options": [
+        {
+          "id": "r1_safe",
+          "name": "FarmLedger",
+          "industry": "Agriculture",
+          "riskTier": "Safe",
+          "riskScore": 2,
+          "win": 10,
+          "fail": -3,
+          "imageUrl": "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=600&h=800&fit=crop",
+          "description": "U.S.-based agri-fintech startup raised $30M to support independent farm businesses with financial management tools."
+        },
+        {
+          "id": "r1_balanced",
+          "name": "TerraGrain",
+          "industry": "Agriculture",
+          "riskTier": "Medium Risk",
+          "riskScore": 5,
+          "win": 25,
+          "fail": -10,
+          "imageUrl": "https://images.unsplash.com/photo-1536657464919-892534f60d6e?w=600&h=800&fit=crop",
+          "description": "Singaporean agritech startup raised $31M Series B to scale low-methane, sustainable rice farming across Southeast Asia."
+        },
+        {
+          "id": "r1_high",
+          "name": "Harvest Spring Studio",
+          "industry": "Agriculture",
+          "riskTier": "High Risk",
+          "riskScore": 8,
+          "win": 70,
+          "fail": -35,
+          "imageUrl": "https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=600&h=800&fit=crop",
+          "description": "New Singapore-based venture studio launched to commercialize agtech solutions for smallholder farmers across Southeast Asia, initial investment SG$1.2M."
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "options": [
+        {
+          "id": "r2_safe",
+          "name": "CoolFlow Safety",
+          "industry": "Auto / Parts",
+          "riskTier": "Safe",
+          "riskScore": 2,
+          "win": 12,
+          "fail": -4,
+          "imageUrl": "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=600&h=800&fit=crop",
+          "description": "Thermal management and high-voltage safety components are critical for EV performance and safety."
+        },
+        {
+          "id": "r2_balanced",
+          "name": "AgriBot AI",
+          "industry": "Agriculture",
+          "riskTier": "Medium Risk",
+          "riskScore": 5,
+          "win": 30,
+          "fail": -12,
+          "imageUrl": "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=600&h=800&fit=crop",
+          "description": "Venture raised 200M yuan for AI-powered farming robots that use 92% less water and 94% less land than traditional methods."
+        },
+        {
+          "id": "r2_high",
+          "name": "SoilCarbon Works",
+          "industry": "Agriculture",
+          "riskTier": "High Risk",
+          "riskScore": 8,
+          "win": 80,
+          "fail": -40,
+          "imageUrl": "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600&h=800&fit=crop",
+          "description": "U.S. startup raised $9.5M for a carbon-credit platform designed for Asian rice farms."
+        }
+      ]
+    },
+    {
+      "round": 3,
+      "options": [
+        {
+          "id": "r3_safe",
+          "name": "APAC Parts Growth",
+          "industry": "Auto / Parts",
+          "riskTier": "Safe",
+          "riskScore": 2,
+          "win": 15,
+          "fail": -5,
+          "imageUrl": "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=600&h=800&fit=crop",
+          "description": "Asia-Pacific automotive components market projected to grow from $61.59B in 2026 to $80.64B by 2031."
+        },
+        {
+          "id": "r3_balanced",
+          "name": "VoltCore Components",
+          "industry": "Auto / Parts",
+          "riskTier": "Medium Risk",
+          "riskScore": 5,
+          "win": 28,
+          "fail": -11,
+          "imageUrl": "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=600&h=800&fit=crop",
+          "description": "Investment priority in battery-related parts, e-axles, and battery enclosures, driven by EV adoption and global incentives."
+        },
+        {
+          "id": "r3_high",
+          "name": "DriveSense Modules",
+          "industry": "Auto / Parts",
+          "riskTier": "High Risk",
+          "riskScore": 8,
+          "win": 90,
+          "fail": -50,
+          "imageUrl": "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=600&h=800&fit=crop",
+          "description": "ADAS hardware and connected-vehicle modules are key growth areas as smart driving technology expands."
+        }
+      ]
+    },
+    {
+      "round": 4,
+      "options": [
+        {
+          "id": "r4_safe",
+          "name": "Metric Therapeutics",
+          "industry": "Biotechnology",
+          "riskTier": "Safe",
+          "riskScore": 2,
+          "win": 12,
+          "fail": -4,
+          "imageUrl": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=800&fit=crop",
+          "description": "Raised $100M after its first clinical readout, with plans to bring two more drugs into human testing."
+        },
+        {
+          "id": "r4_balanced",
+          "name": "ReCycle Auto Parts",
+          "industry": "Auto / Parts",
+          "riskTier": "Medium Risk",
+          "riskScore": 5,
+          "win": 22,
+          "fail": -9,
+          "imageUrl": "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=600&h=800&fit=crop",
+          "description": "Remanufactured components support cost control and circularity in the automotive supply chain."
+        },
+        {
+          "id": "r4_high",
+          "name": "HelixMind AI",
+          "industry": "Biotechnology",
+          "riskTier": "High Risk",
+          "riskScore": 8,
+          "win": 100,
+          "fail": -50,
+          "imageUrl": "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=600&h=800&fit=crop",
+          "description": "Asia leads in AI-driven drug discovery with $267B raised, surpassing the U.S. and Europe."
+        }
+      ]
+    },
+    {
+      "round": 5,
+      "options": [
+        {
+          "id": "r5_safe",
+          "name": "IndustryStack SaaS",
+          "industry": "Business Products & Services",
+          "riskTier": "Safe",
+          "riskScore": 2,
+          "win": 14,
+          "fail": -4,
+          "imageUrl": "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&h=800&fit=crop",
+          "description": "Vertical SaaS is considered a “safe haven” due to deep data moats and industry-specific knowledge."
+        },
+        {
+          "id": "r5_balanced",
+          "name": "Skyward Bio",
+          "industry": "Biotechnology",
+          "riskTier": "Medium Risk",
+          "riskScore": 5,
+          "win": 30,
+          "fail": -12,
+          "imageUrl": "https://images.unsplash.com/photo-1559757175-7cb056fba93d?w=600&h=800&fit=crop",
+          "description": "Raised $165M to advance long-acting bispecific antibodies targeting TSLP and IL-13 pathways."
+        },
+        {
+          "id": "r5_high",
+          "name": "GeneForge Platforms",
+          "industry": "Biotechnology",
+          "riskTier": "High Risk",
+          "riskScore": 8,
+          "win": 110,
+          "fail": -55,
+          "imageUrl": "https://images.unsplash.com/photo-1579154204601-01588f351e67?w=600&h=800&fit=crop",
+          "description": "CRISPR and mRNA technologies are attracting record investment and reshaping pharmaceuticals."
+        }
+      ]
+    },
+    {
+      "round": 6,
+      "options": [
+        {
+          "id": "r6_safe",
+          "name": "CoreGuard SaaS",
+          "industry": "Business Products & Services",
+          "riskTier": "Safe",
+          "riskScore": 2,
+          "win": 12,
+          "fail": -4,
+          "imageUrl": "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=600&h=800&fit=crop",
+          "description": "Mission-critical infrastructure SaaS in security, payments, and infrastructure is seen as defensible with high gross revenue retention."
+        },
+        {
+          "id": "r6_balanced",
+          "name": "Panorama Therapeutics",
+          "industry": "Biotechnology",
+          "riskTier": "Medium Risk",
+          "riskScore": 5,
+          "win": 35,
+          "fail": -14,
+          "imageUrl": "https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=600&h=800&fit=crop",
+          "description": "Completed a $250M Series B for its precision medicine engine, Panorama360™, targeting immune-inflammatory and fibrotic diseases."
+        },
+        {
+          "id": "r6_high",
+          "name": "EmbedPay",
+          "industry": "Business Products & Services",
+          "riskTier": "High Risk",
+          "riskScore": 8,
+          "win": 80,
+          "fail": -45,
+          "imageUrl": "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&h=800&fit=crop",
+          "description": "Embedded fintech in vertical SaaS platforms is a core long thesis and an active area for private equity roll-ups."
+        }
+      ]
+    },
+    {
+      "round": 7,
+      "options": [
+        {
+          "id": "r7_safe",
+          "name": "EcoBond Formulations",
+          "industry": "Chemicals",
+          "riskTier": "Safe",
+          "riskScore": 2,
+          "win": 12,
+          "fail": -4,
+          "imageUrl": "https://images.unsplash.com/photo-1615486364076-c2e1c8b4a99b?w=600&h=800&fit=crop",
+          "description": "Sustainable and circular formulations, including recyclable adhesives and process-efficiency solutions."
+        },
+        {
+          "id": "r7_balanced",
+          "name": "FlowAI Tools",
+          "industry": "Business Products & Services",
+          "riskTier": "Medium Risk",
+          "riskScore": 5,
+          "win": 28,
+          "fail": -11,
+          "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=800&fit=crop",
+          "description": "AI-native productivity tools: AI workflow TAM estimated to scale from $65B in 2025 to $190B by 2030."
+        },
+        {
+          "id": "r7_high",
+          "name": "NobleGas Specialty",
+          "industry": "Chemicals",
+          "riskTier": "High Risk",
+          "riskScore": 8,
+          "win": 120,
+          "fail": -60,
+          "imageUrl": "https://images.unsplash.com/photo-1532187643603-ba119ca4109e?w=600&h=800&fit=crop",
+          "description": "Electronic specialty gases are currently one of the highest-boom sub-sectors within specialty chemicals."
+        }
+      ]
+    },
+    {
+      "round": 8,
+      "options": [
+        {
+          "id": "r8_safe",
+          "name": "CleanPlant Proteins",
+          "industry": "Food & Beverage",
+          "riskTier": "Safe",
+          "riskScore": 2,
+          "win": 10,
+          "fail": -3,
+          "imageUrl": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&h=800&fit=crop",
+          "description": "Growing demand for minimally processed plant proteins such as tofu, tempeh, and legumes."
+        },
+        {
+          "id": "r8_balanced",
+          "name": "ServiceOS",
+          "industry": "Business Products & Services",
+          "riskTier": "Medium Risk",
+          "riskScore": 5,
+          "win": 25,
+          "fail": -10,
+          "imageUrl": "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=800&fit=crop",
+          "description": "Service-as-software models are being reassessed through gross margins and workflow-wrappers."
+        },
+        {
+          "id": "r8_high",
+          "name": "SpecialtyChem Value",
+          "industry": "Chemicals",
+          "riskTier": "High Risk",
+          "riskScore": 8,
+          "win": 100,
+          "fail": -50,
+          "imageUrl": "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&h=800&fit=crop",
+          "description": "Many specialty-chemical stocks are trading at historic discounts, with 2027 expected to offer compelling growth."
+        }
+      ]
+    },
+    {
+      "round": 9,
+      "options": [
+        {
+          "id": "r9_safe",
+          "name": "MedLearn SaaS",
+          "industry": "Education",
+          "riskTier": "Safe",
+          "riskScore": 2,
+          "win": 12,
+          "fail": -4,
+          "imageUrl": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&h=800&fit=crop",
+          "description": "Kuwait-based healthcare education SaaS secured $2M seed for regional expansion."
+        },
+        {
+          "id": "r9_balanced",
+          "name": "CircuitChem Materials",
+          "industry": "Chemicals",
+          "riskTier": "Medium Risk",
+          "riskScore": 5,
+          "win": 32,
+          "fail": -13,
+          "imageUrl": "https://images.unsplash.com/photo-1581093458791-9d42e3c7e117?w=600&h=800&fit=crop",
+          "description": "Electronic chemicals forecast to grow at 7% CAGR from 2026–2030, with semiconductor-grade chemicals seeing strongest demand."
+        },
+        {
+          "id": "r9_high",
+          "name": "FermentDairy Co.",
+          "industry": "Food & Beverage",
+          "riskTier": "High Risk",
+          "riskScore": 8,
+          "win": 100,
+          "fail": -55,
+          "imageUrl": "https://images.unsplash.com/photo-1550583724-b2692b85b150?w=600&h=800&fit=crop",
+          "description": "Precision fermented dairy-free proteins market projected to grow from $1.83B in 2025 to $2.52B in 2026, a 37.9% CAGR."
+        }
+      ]
+    },
+    {
+      "round": 10,
+      "options": [
+        {
+          "id": "r10_safe",
+          "name": "FabTool Equipment",
+          "industry": "Electronics",
+          "riskTier": "Safe",
+          "riskScore": 2,
+          "win": 8,
+          "fail": -2,
+          "imageUrl": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=800&fit=crop",
+          "description": "Continued strength in semiconductor equipment demand driven by AI-related investment."
+        },
+        {
+          "id": "r10_balanced",
+          "name": "LocalChip Chemicals",
+          "industry": "Chemicals",
+          "riskTier": "Medium Risk",
+          "riskScore": 5,
+          "win": 28,
+          "fail": -11,
+          "imageUrl": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=600&h=800&fit=crop",
+          "description": "Localization of electronic chemicals: CMP consumables and electronic-grade additives as supply chains regionalize."
+        },
+        {
+          "id": "r10_high",
+          "name": "LeafPro RuBisCO",
+          "industry": "Food & Beverage",
+          "riskTier": "High Risk",
+          "riskScore": 8,
+          "win": 90,
+          "fail": -50,
+          "imageUrl": "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=600&h=800&fit=crop",
+          "description": "Leaf-based proteins like RuBisCO are moving closer to commercial reality as approvals accelerate."
+        }
+      ]
+    }
+  ],
+  "allOpportunities": [
+    {
+      "id": "opp_harvest_spring_studio",
+      "name": "Harvest Spring Studio",
+      "industry": "Agriculture",
+      "riskTier": "High Risk",
+      "riskScore": 8,
+      "win": 70,
+      "fail": -35,
+      "imageUrl": "https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=600&h=800&fit=crop",
+      "description": "New Singapore-based venture studio launched to commercialize agtech solutions for smallholder farmers across Southeast Asia, initial investment SG$1.2M."
+    },
+    {
+      "id": "opp_terragrain",
+      "name": "TerraGrain",
+      "industry": "Agriculture",
+      "riskTier": "Medium Risk",
+      "riskScore": 5,
+      "win": 25,
+      "fail": -10,
+      "imageUrl": "https://images.unsplash.com/photo-1536657464919-892534f60d6e?w=600&h=800&fit=crop",
+      "description": "Singaporean agritech startup raised $31M Series B to scale low-methane, sustainable rice farming across Southeast Asia."
+    },
+    {
+      "id": "opp_farmledger",
+      "name": "FarmLedger",
+      "industry": "Agriculture",
+      "riskTier": "Safe",
+      "riskScore": 2,
+      "win": 10,
+      "fail": -3,
+      "imageUrl": "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=600&h=800&fit=crop",
+      "description": "U.S.-based agri-fintech startup raised $30M to support independent farm businesses with financial management tools."
+    },
+    {
+      "id": "opp_soilcarbon_works",
+      "name": "SoilCarbon Works",
+      "industry": "Agriculture",
+      "riskTier": "High Risk",
+      "riskScore": 8,
+      "win": 80,
+      "fail": -40,
+      "imageUrl": "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600&h=800&fit=crop",
+      "description": "U.S. startup raised $9.5M for a carbon-credit platform designed for Asian rice farms."
+    },
+    {
+      "id": "opp_agribot_ai",
+      "name": "AgriBot AI",
+      "industry": "Agriculture",
+      "riskTier": "Medium Risk",
+      "riskScore": 5,
+      "win": 30,
+      "fail": -12,
+      "imageUrl": "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=600&h=800&fit=crop",
+      "description": "Venture raised 200M yuan for AI-powered farming robots that use 92% less water and 94% less land than traditional methods."
+    },
+    {
+      "id": "opp_voltcore_components",
+      "name": "VoltCore Components",
+      "industry": "Auto / Parts",
+      "riskTier": "Medium Risk",
+      "riskScore": 5,
+      "win": 28,
+      "fail": -11,
+      "imageUrl": "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=600&h=800&fit=crop",
+      "description": "Investment priority in battery-related parts, e-axles, and battery enclosures, driven by EV adoption and global incentives."
+    },
+    {
+      "id": "opp_drivesense_modules",
+      "name": "DriveSense Modules",
+      "industry": "Auto / Parts",
+      "riskTier": "High Risk",
+      "riskScore": 8,
+      "win": 90,
+      "fail": -50,
+      "imageUrl": "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=600&h=800&fit=crop",
+      "description": "ADAS hardware and connected-vehicle modules are key growth areas as smart driving technology expands."
+    },
+    {
+      "id": "opp_coolflow_safety",
+      "name": "CoolFlow Safety",
+      "industry": "Auto / Parts",
+      "riskTier": "Safe",
+      "riskScore": 2,
+      "win": 12,
+      "fail": -4,
+      "imageUrl": "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=600&h=800&fit=crop",
+      "description": "Thermal management and high-voltage safety components are critical for EV performance and safety."
+    },
+    {
+      "id": "opp_recycle_auto_parts",
+      "name": "ReCycle Auto Parts",
+      "industry": "Auto / Parts",
+      "riskTier": "Medium Risk",
+      "riskScore": 5,
+      "win": 22,
+      "fail": -9,
+      "imageUrl": "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=600&h=800&fit=crop",
+      "description": "Remanufactured components support cost control and circularity in the automotive supply chain."
+    },
+    {
+      "id": "opp_apac_parts_growth",
+      "name": "APAC Parts Growth",
+      "industry": "Auto / Parts",
+      "riskTier": "Safe",
+      "riskScore": 2,
+      "win": 15,
+      "fail": -5,
+      "imageUrl": "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=600&h=800&fit=crop",
+      "description": "Asia-Pacific automotive components market projected to grow from $61.59B in 2026 to $80.64B by 2031."
+    },
+    {
+      "id": "opp_helixmind_ai",
+      "name": "HelixMind AI",
+      "industry": "Biotechnology",
+      "riskTier": "High Risk",
+      "riskScore": 8,
+      "win": 100,
+      "fail": -50,
+      "imageUrl": "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=600&h=800&fit=crop",
+      "description": "Asia leads in AI-driven drug discovery with $267B raised, surpassing the U.S. and Europe."
+    },
+    {
+      "id": "opp_geneforge_platforms",
+      "name": "GeneForge Platforms",
+      "industry": "Biotechnology",
+      "riskTier": "High Risk",
+      "riskScore": 8,
+      "win": 110,
+      "fail": -55,
+      "imageUrl": "https://images.unsplash.com/photo-1579154204601-01588f351e67?w=600&h=800&fit=crop",
+      "description": "CRISPR and mRNA technologies are attracting record investment and reshaping pharmaceuticals."
+    },
+    {
+      "id": "opp_skyward_bio",
+      "name": "Skyward Bio",
+      "industry": "Biotechnology",
+      "riskTier": "Medium Risk",
+      "riskScore": 5,
+      "win": 30,
+      "fail": -12,
+      "imageUrl": "https://images.unsplash.com/photo-1559757175-7cb056fba93d?w=600&h=800&fit=crop",
+      "description": "Raised $165M to advance long-acting bispecific antibodies targeting TSLP and IL-13 pathways."
+    },
+    {
+      "id": "opp_panorama_therapeutics",
+      "name": "Panorama Therapeutics",
+      "industry": "Biotechnology",
+      "riskTier": "Medium Risk",
+      "riskScore": 5,
+      "win": 35,
+      "fail": -14,
+      "imageUrl": "https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=600&h=800&fit=crop",
+      "description": "Completed a $250M Series B for its precision medicine engine, Panorama360™, targeting immune-inflammatory and fibrotic diseases."
+    },
+    {
+      "id": "opp_metric_therapeutics",
+      "name": "Metric Therapeutics",
+      "industry": "Biotechnology",
+      "riskTier": "Safe",
+      "riskScore": 2,
+      "win": 12,
+      "fail": -4,
+      "imageUrl": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=800&fit=crop",
+      "description": "Raised $100M after its first clinical readout, with plans to bring two more drugs into human testing."
+    },
+    {
+      "id": "opp_industrystack_saas",
+      "name": "IndustryStack SaaS",
+      "industry": "Business Products & Services",
+      "riskTier": "Safe",
+      "riskScore": 2,
+      "win": 14,
+      "fail": -4,
+      "imageUrl": "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&h=800&fit=crop",
+      "description": "Vertical SaaS is considered a “safe haven” due to deep data moats and industry-specific knowledge."
+    },
+    {
+      "id": "opp_flowai_tools",
+      "name": "FlowAI Tools",
+      "industry": "Business Products & Services",
+      "riskTier": "Medium Risk",
+      "riskScore": 5,
+      "win": 28,
+      "fail": -11,
+      "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=800&fit=crop",
+      "description": "AI-native productivity tools: AI workflow TAM estimated to scale from $65B in 2025 to $190B by 2030."
+    },
+    {
+      "id": "opp_coreguard_saas",
+      "name": "CoreGuard SaaS",
+      "industry": "Business Products & Services",
+      "riskTier": "Safe",
+      "riskScore": 2,
+      "win": 12,
+      "fail": -4,
+      "imageUrl": "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=600&h=800&fit=crop",
+      "description": "Mission-critical infrastructure SaaS in security, payments, and infrastructure is seen as defensible with high gross revenue retention."
+    },
+    {
+      "id": "opp_serviceos",
+      "name": "ServiceOS",
+      "industry": "Business Products & Services",
+      "riskTier": "Medium Risk",
+      "riskScore": 5,
+      "win": 25,
+      "fail": -10,
+      "imageUrl": "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=800&fit=crop",
+      "description": "Service-as-software models are being reassessed through gross margins and workflow-wrappers."
+    },
+    {
+      "id": "opp_embedpay",
+      "name": "EmbedPay",
+      "industry": "Business Products & Services",
+      "riskTier": "High Risk",
+      "riskScore": 8,
+      "win": 80,
+      "fail": -45,
+      "imageUrl": "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&h=800&fit=crop",
+      "description": "Embedded fintech in vertical SaaS platforms is a core long thesis and an active area for private equity roll-ups."
+    },
+    {
+      "id": "opp_circuitchem_materials",
+      "name": "CircuitChem Materials",
+      "industry": "Chemicals",
+      "riskTier": "Medium Risk",
+      "riskScore": 5,
+      "win": 32,
+      "fail": -13,
+      "imageUrl": "https://images.unsplash.com/photo-1581093458791-9d42e3c7e117?w=600&h=800&fit=crop",
+      "description": "Electronic chemicals forecast to grow at 7% CAGR from 2026–2030, with semiconductor-grade chemicals seeing strongest demand."
+    },
+    {
+      "id": "opp_noblegas_specialty",
+      "name": "NobleGas Specialty",
+      "industry": "Chemicals",
+      "riskTier": "High Risk",
+      "riskScore": 8,
+      "win": 120,
+      "fail": -60,
+      "imageUrl": "https://images.unsplash.com/photo-1532187643603-ba119ca4109e?w=600&h=800&fit=crop",
+      "description": "Electronic specialty gases are currently one of the highest-boom sub-sectors within specialty chemicals."
+    },
+    {
+      "id": "opp_ecobond_formulations",
+      "name": "EcoBond Formulations",
+      "industry": "Chemicals",
+      "riskTier": "Safe",
+      "riskScore": 2,
+      "win": 12,
+      "fail": -4,
+      "imageUrl": "https://images.unsplash.com/photo-1615486364076-c2e1c8b4a99b?w=600&h=800&fit=crop",
+      "description": "Sustainable and circular formulations, including recyclable adhesives and process-efficiency solutions."
+    },
+    {
+      "id": "opp_localchip_chemicals",
+      "name": "LocalChip Chemicals",
+      "industry": "Chemicals",
+      "riskTier": "Medium Risk",
+      "riskScore": 5,
+      "win": 28,
+      "fail": -11,
+      "imageUrl": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=600&h=800&fit=crop",
+      "description": "Localization of electronic chemicals: CMP consumables and electronic-grade additives as supply chains regionalize."
+    },
+    {
+      "id": "opp_specialtychem_value",
+      "name": "SpecialtyChem Value",
+      "industry": "Chemicals",
+      "riskTier": "High Risk",
+      "riskScore": 8,
+      "win": 100,
+      "fail": -50,
+      "imageUrl": "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&h=800&fit=crop",
+      "description": "Many specialty-chemical stocks are trading at historic discounts, with 2027 expected to offer compelling growth."
+    },
+    {
+      "id": "opp_fermentdairy_co_",
+      "name": "FermentDairy Co.",
+      "industry": "Food & Beverage",
+      "riskTier": "High Risk",
+      "riskScore": 8,
+      "win": 100,
+      "fail": -55,
+      "imageUrl": "https://images.unsplash.com/photo-1550583724-b2692b85b150?w=600&h=800&fit=crop",
+      "description": "Precision fermented dairy-free proteins market projected to grow from $1.83B in 2025 to $2.52B in 2026, a 37.9% CAGR."
+    },
+    {
+      "id": "opp_hybridharvest",
+      "name": "HybridHarvest",
+      "industry": "Food & Beverage",
+      "riskTier": "Medium Risk",
+      "riskScore": 5,
+      "win": 26,
+      "fail": -10,
+      "imageUrl": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&h=800&fit=crop",
+      "description": "Strong opportunities in hybrid products combining animal and plant ingredients."
+    },
+    {
+      "id": "opp_cleanplant_proteins",
+      "name": "CleanPlant Proteins",
+      "industry": "Food & Beverage",
+      "riskTier": "Safe",
+      "riskScore": 2,
+      "win": 10,
+      "fail": -3,
+      "imageUrl": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&h=800&fit=crop",
+      "description": "Growing demand for minimally processed plant proteins such as tofu, tempeh, and legumes."
+    },
+    {
+      "id": "opp_leafpro_rubisco",
+      "name": "LeafPro RuBisCO",
+      "industry": "Food & Beverage",
+      "riskTier": "High Risk",
+      "riskScore": 8,
+      "win": 90,
+      "fail": -50,
+      "imageUrl": "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=600&h=800&fit=crop",
+      "description": "Leaf-based proteins like RuBisCO are moving closer to commercial reality as approvals accelerate."
+    },
+    {
+      "id": "opp_microbiome_ingredients",
+      "name": "MicroBiome Ingredients",
+      "industry": "Food & Beverage",
+      "riskTier": "Medium Risk",
+      "riskScore": 5,
+      "win": 24,
+      "fail": -10,
+      "imageUrl": "https://images.unsplash.com/photo-1595246140625-573b715d11dc?w=600&h=800&fit=crop",
+      "description": "Companies are increasingly investing in microbial fermentation and biomass ingredients."
+    },
+    {
+      "id": "opp_tutormind_ai",
+      "name": "TutorMind AI",
+      "industry": "Education",
+      "riskTier": "Medium Risk",
+      "riskScore": 5,
+      "win": 25,
+      "fail": -10,
+      "imageUrl": "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600&h=800&fit=crop",
+      "description": "London-based exam tutoring provider completed an $8M seed round."
+    },
+    {
+      "id": "opp_playspark_learning",
+      "name": "PlaySpark Learning",
+      "industry": "Education",
+      "riskTier": "High Risk",
+      "riskScore": 8,
+      "win": 80,
+      "fail": -40,
+      "imageUrl": "https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=600&h=800&fit=crop",
+      "description": "Raised $5M pre-seed for an AI-based play-based learning product for children aged 5–12."
+    },
+    {
+      "id": "opp_lingualoop_ai",
+      "name": "LinguaLoop AI",
+      "industry": "Education",
+      "riskTier": "Medium Risk",
+      "riskScore": 5,
+      "win": 28,
+      "fail": -11,
+      "imageUrl": "https://images.unsplash.com/photo-1543109740-4bdb38fda756?w=600&h=800&fit=crop",
+      "description": "Completed a $22M Series B for its AI language learning platform."
+    },
+    {
+      "id": "opp_medlearn_saas",
+      "name": "MedLearn SaaS",
+      "industry": "Education",
+      "riskTier": "Safe",
+      "riskScore": 2,
+      "win": 12,
+      "fail": -4,
+      "imageUrl": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&h=800&fit=crop",
+      "description": "Kuwait-based healthcare education SaaS secured $2M seed for regional expansion."
+    },
+    {
+      "id": "opp_gradegenie_ai",
+      "name": "GradeGenie AI",
+      "industry": "Education",
+      "riskTier": "High Risk",
+      "riskScore": 8,
+      "win": 85,
+      "fail": -45,
+      "imageUrl": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=800&fit=crop",
+      "description": "Raised €5M seed, scaling from 100 to 2,500 copies corrected per day, with plans for U.S. expansion."
+    },
+    {
+      "id": "opp_fabtool_equipment",
+      "name": "FabTool Equipment",
+      "industry": "Electronics",
+      "riskTier": "Safe",
+      "riskScore": 2,
+      "win": 8,
+      "fail": -2,
+      "imageUrl": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=800&fit=crop",
+      "description": "Continued strength in semiconductor equipment demand driven by AI-related investment."
+    },
+    {
+      "id": "opp_packedge_osat",
+      "name": "PackEdge OSAT",
+      "industry": "Electronics",
+      "riskTier": "Medium Risk",
+      "riskScore": 5,
+      "win": 18,
+      "fail": -7,
+      "imageUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&h=800&fit=crop",
+      "description": "Southeast Asia seeing significant investment in outsourced semiconductor assembly and testing (OSAT)."
+    },
+    {
+      "id": "opp_powercore_semiconductors",
+      "name": "PowerCore Semiconductors",
+      "industry": "Electronics",
+      "riskTier": "Medium Risk",
+      "riskScore": 5,
+      "win": 20,
+      "fail": -8,
+      "imageUrl": "https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?w=600&h=800&fit=crop",
+      "description": "Power management semiconductors highlighted as significant opportunities."
+    },
+    {
+      "id": "opp_chipparts_manufacturing",
+      "name": "ChipParts Manufacturing",
+      "industry": "Electronics",
+      "riskTier": "Safe",
+      "riskScore": 2,
+      "win": 6,
+      "fail": -2,
+      "imageUrl": "https://images.unsplash.com/photo-1555664424-778a1e5e1b48?w=600&h=800&fit=crop",
+      "description": "Semiconductor and electronic parts manufacturing market projected to grow from $513.76B in 2025 to $592.62B in 2026."
+    },
+    {
+      "id": "opp_ai_server_chips",
+      "name": "AI Server Chips",
+      "industry": "Electronics",
+      "riskTier": "High Risk",
+      "riskScore": 8,
+      "win": 70,
+      "fail": -35,
+      "imageUrl": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=800&fit=crop",
+      "description": "Demand from AI servers, humanoid robots, and AR glasses is driving semiconductor industry prosperity."
+    },
+    {
+      "id": "opp_esports_arena_growth",
+      "name": "Esports Arena Growth",
+      "industry": "Gaming",
+      "riskTier": "High Risk",
+      "riskScore": 8,
+      "win": 110,
+      "fail": -55,
+      "imageUrl": "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=600&h=800&fit=crop",
+      "description": "Global esports market expected to grow from $3.20B in 2026 to $13.71B by 2033, a 23.1% CAGR."
+    },
+    {
+      "id": "opp_playrights_media",
+      "name": "PlayRights Media",
+      "industry": "Gaming",
+      "riskTier": "Medium Risk",
+      "riskScore": 5,
+      "win": 30,
+      "fail": -12,
+      "imageUrl": "https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=600&h=800&fit=crop",
+      "description": "Media rights and sponsorships are key revenue models in the esports market."
+    },
+    {
+      "id": "opp_creatorplay_ai",
+      "name": "CreatorPlay AI",
+      "industry": "Gaming",
+      "riskTier": "High Risk",
+      "riskScore": 8,
+      "win": 100,
+      "fail": -50,
+      "imageUrl": "https://images.unsplash.com/photo-1552820728-8b83bb6b773f?w=600&h=800&fit=crop",
+      "description": "AI, user-generated content, and tech platforms are expected to stay at the forefront of gaming investment."
+    },
+    {
+      "id": "opp_arcade_surge",
+      "name": "ARcade Surge",
+      "industry": "Gaming",
+      "riskTier": "Medium Risk",
+      "riskScore": 5,
+      "win": 28,
+      "fail": -11,
+      "imageUrl": "https://images.unsplash.com/photo-1592478411213-6153e4ebc07d?w=600&h=800&fit=crop",
+      "description": "A surge in augmented reality activity is anticipated in the gaming investment landscape."
+    },
+    {
+      "id": "opp_strategic_play_fund",
+      "name": "Strategic Play Fund",
+      "industry": "Gaming",
+      "riskTier": "Safe",
+      "riskScore": 2,
+      "win": 15,
+      "fail": -5,
+      "imageUrl": "https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?w=600&h=800&fit=crop",
+      "description": "Major global strategics remain active in gaming investments."
+    },
+    {
+      "id": "opp_dermalab_cosmetics",
+      "name": "DermaLab Cosmetics",
+      "industry": "Health & Beauty",
+      "riskTier": "Medium Risk",
+      "riskScore": 5,
+      "win": 24,
+      "fail": -10,
+      "imageUrl": "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=600&h=800&fit=crop",
+      "description": "A major consumer fund led a $20M+ Series A for a dermatologist-developed skincare brand."
+    },
+    {
+      "id": "opp_bioderm_skincare",
+      "name": "BioDerm Skincare",
+      "industry": "Health & Beauty",
+      "riskTier": "Medium Risk",
+      "riskScore": 5,
+      "win": 22,
+      "fail": -9,
+      "imageUrl": "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&h=800&fit=crop",
+      "description": "A growth fund announced an investment in a brand built around patented biotechnology-derived actives."
+    },
+    {
+      "id": "opp_seoulglow_k_beauty",
+      "name": "SeoulGlow K-Beauty",
+      "industry": "Health & Beauty",
+      "riskTier": "High Risk",
+      "riskScore": 8,
+      "win": 85,
+      "fail": -45,
+      "imageUrl": "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=600&h=800&fit=crop",
+      "description": "A K-beauty startup secured 2B won in seed funding from two strategic K-beauty investors."
+    },
+    {
+      "id": "opp_microbiome_beauty_fund",
+      "name": "Microbiome Beauty Fund",
+      "industry": "Health & Beauty",
+      "riskTier": "Safe",
+      "riskScore": 2,
+      "win": 12,
+      "fail": -4,
+      "imageUrl": "https://images.unsplash.com/photo-1582719508461-905c673771fd?w=600&h=800&fit=crop",
+      "description": "A global skincare leader launched a €100M venture fund targeting skin care innovation, including skin microbiome science."
+    },
+    {
+      "id": "opp_calmskin_pharmacy",
+      "name": "CalmSkin Pharmacy",
+      "industry": "Health & Beauty",
+      "riskTier": "Safe",
+      "riskScore": 2,
+      "win": 10,
+      "fail": -3,
+      "imageUrl": "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=600&h=800&fit=crop",
+      "description": "A European venture fund invested in a French pharmacy brand targeting ultra-sensitive skin."
+    }
+  ]
+}

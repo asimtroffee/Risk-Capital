@@ -1,0 +1,1180 @@
+/* ================================================================
+   PLAYER RETRO PIXEL ART THEME OVERRIDE — MATCHING HOST AESTHETIC
+   Color Palette: #FEFAE0 (Parchment Cream) • #DDA15E (Amber Gold) • #BC6C25 (Burnt Copper)
+   Backgrounds: Dark Leather & Dithered RPG Panels
+   Typography: High-legibility normal fonts (Plus Jakarta Sans & JetBrains Mono)
+   ================================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;600;700;800;900&display=swap');
+
+/* ================================================================
+   ROOT VARIABLES OVERRIDE
+   ================================================================ */
+:root {
+  /* Canvas & Surfaces — Dark Leather RPG */
+  --p-bg: #1a110a;
+  --p-surface: #231810;
+  --p-surface-low: #1a110a;
+  --p-card: #2c1e14;
+  --p-card-hover: #3a2a1a;
+  --p-card-cream: #FEFAE0;
+
+  /* Parchment Palette */
+  --parch-light: #FEFAE0;
+  --parch-mid: #f5e6c0;
+  --parch-dark: #e8d5a3;
+  --parch-text: #2c1a0e;
+
+  /* Accent Palette */
+  --p-amber: #DDA15E;
+  --p-amber-light: #e8bb7e;
+  --p-amber-dark: #b88540;
+  --p-copper: #BC6C25;
+  --p-copper-dark: #8f4e14;
+  --p-copper-light: #d89050;
+
+  /* Overrides for existing player color variables */
+  --p-emerald: #6b8e23;
+  --p-emerald-light: #8fbc3a;
+  --p-gold: #DDA15E;
+  --p-gold-light: #e8bb7e;
+  --p-coral: #BC6C25;
+  --p-coral-light: #d89050;
+  --p-cyan: #DDA15E;
+  --p-cyan-light: #e8bb7e;
+  --p-violet: #8b5e3c;
+
+  /* Thick Pixel Borders & 3D Shadows */
+  --p-border: 4px solid #0f0b08;
+  --p-border-subtle: 2px solid rgba(221, 161, 94, 0.35);
+  --p-shadow-sm: 0 4px 0 #0a0705;
+  --p-shadow-md: 0 6px 0 #0a0705;
+  --p-shadow-lg: 0 8px 0 #0a0705;
+
+  /* Text Colors */
+  --p-text: #FEFAE0;
+  --p-text-muted: #e4d8ba;
+  --p-text-dim: #bda886;
+  --p-text-dark: #1a110a;
+
+  /* Typography */
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', Consolas, monospace;
+}
+
+/* ================================================================
+   BODY & BACKGROUND — Dark Leather Dither Texture
+   ================================================================ */
+body.player-body {
+  background-color: #1a110a !important;
+  background-image: 
+    radial-gradient(#2c1e14 15%, transparent 16%),
+    radial-gradient(#1f150d 15%, transparent 16%) !important;
+  background-size: 8px 8px !important;
+  background-position: 0 0, 4px 4px !important;
+  color: var(--p-text) !important;
+  font-family: var(--font-sans) !important;
+  -webkit-font-smoothing: antialiased;
+}
+
+.player-grid-overlay {
+  background-image: radial-gradient(rgba(221, 161, 94, 0.06) 1.5px, transparent 1.5px) !important;
+  background-size: 16px 16px !important;
+}
+
+/* ================================================================
+   TOP HUD BAR — Retro Tavern Bar
+   ================================================================ */
+.player-hud {
+  background: linear-gradient(180deg, #2c1e14, #231810) !important;
+  border: 3px solid #0f0b08 !important;
+  border-bottom: 5px solid #0f0b08 !important;
+  border-radius: 4px !important;
+  box-shadow: 
+    inset 0 1px 0 rgba(221, 161, 94, 0.3),
+    0 4px 0 #0a0705 !important;
+  padding: 8px 14px !important;
+}
+
+.hud-logo {
+  font-family: var(--font-sans) !important;
+  font-weight: 900 !important;
+  font-size: 14px !important;
+  background: linear-gradient(135deg, #DDA15E, #BC6C25) !important;
+  color: #1a110a !important;
+  padding: 3px 8px !important;
+  border: 2px solid #0f0b08 !important;
+  border-radius: 3px !important;
+  box-shadow: inset 1px 1px 0 #e8bb7e, 0 2px 0 #0a0705 !important;
+}
+
+.hud-nickname {
+  font-family: var(--font-sans) !important;
+  font-size: 14px !important;
+  font-weight: 800 !important;
+  color: #FEFAE0 !important;
+}
+
+.hud-title-badge {
+  background: rgba(188, 108, 37, 0.3) !important;
+  border: 2px solid #BC6C25 !important;
+  color: #e8bb7e !important;
+  font-family: var(--font-sans) !important;
+  font-size: 10px !important;
+  font-weight: 800 !important;
+  border-radius: 2px !important;
+  box-shadow: 0 1px 0 #0a0705 !important;
+}
+
+.hud-sprint-container {
+  background: #1a110a !important;
+  border: 2px solid #BC6C25 !important;
+  border-radius: 4px !important;
+  padding: 4px 10px !important;
+}
+
+.hud-sprint-label {
+  font-family: var(--font-sans) !important;
+  font-size: 10px !important;
+  font-weight: 800 !important;
+  color: #DDA15E !important;
+  letter-spacing: 0.5px !important;
+}
+
+.hud-sprint-cash {
+  font-family: var(--font-mono) !important;
+  font-size: 12px !important;
+  font-weight: 900 !important;
+  color: #8fbc3a !important;
+}
+
+.hud-sprint-track {
+  background: #0f0b08 !important;
+  border: 1px solid #2c1e14 !important;
+  border-radius: 2px !important;
+}
+
+.hud-sprint-bar {
+  background: linear-gradient(90deg, #6b8e23, #DDA15E) !important;
+}
+
+.hud-sound-btn, .hud-portfolio-pill {
+  background: #1a110a !important;
+  border: 2px solid #DDA15E !important;
+  border-radius: 4px !important;
+  box-shadow: 0 3px 0 #0a0705 !important;
+  color: #FEFAE0 !important;
+}
+
+/* ================================================================
+   CARDS & PANELS — Dark Leather Micro-Dither
+   ================================================================ */
+.card-arcade,
+.confirm-modal-inner,
+.dossier-modal-inner,
+.slider-allocation-card,
+.card-receipt,
+.story-card-inner {
+  background: linear-gradient(135deg, #2c1e14 0%, #231810 100%) !important;
+  background-image: 
+    linear-gradient(135deg, #2c1e14 0%, #231810 100%),
+    radial-gradient(#352618 15%, transparent 16%),
+    radial-gradient(#1f150d 15%, transparent 16%) !important;
+  background-size: auto, 6px 6px, 6px 6px !important;
+  background-position: 0 0, 0 0, 3px 3px !important;
+  border: 4px solid #0f0b08 !important;
+  border-radius: 6px !important;
+  box-shadow: 
+    inset 0 2px 0 rgba(221, 161, 94, 0.15),
+    inset 0 -2px 0 rgba(0, 0, 0, 0.4),
+    0 6px 0 #0a0705,
+    0 0 0 1px rgba(221, 161, 94, 0.1) !important;
+}
+
+/* ================================================================
+   SCREEN 1: JOIN THE ARENA (MATCHES SCREENSHOT)
+   ================================================================ */
+.join-box {
+  margin-top: 20px !important;
+  padding: 28px 22px !important;
+}
+
+.join-badge-header {
+  font-family: var(--font-sans) !important;
+  font-size: 11px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.8px !important;
+  color: #1a110a !important;
+  background: linear-gradient(135deg, #DDA15E, #BC6C25) !important;
+  border: 2px solid #0f0b08 !important;
+  border-radius: 3px !important;
+  box-shadow: inset 1px 1px 0 #e8bb7e, 0 3px 0 #0a0705 !important;
+  padding: 5px 14px !important;
+  transform: none !important;
+  margin-bottom: 16px !important;
+}
+
+.join-heading {
+  font-family: var(--font-sans) !important;
+  font-size: 28px !important;
+  font-weight: 900 !important;
+  color: #FEFAE0 !important;
+  text-shadow: 2px 2px 0 #0a0705 !important;
+  letter-spacing: -0.5px !important;
+}
+
+.join-sub {
+  font-family: var(--font-sans) !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  color: #e4d8ba !important;
+  margin-top: 6px !important;
+  margin-bottom: 24px !important;
+}
+
+.form-group label {
+  font-family: var(--font-sans) !important;
+  font-size: 12px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.6px !important;
+  color: #DDA15E !important;
+  text-transform: uppercase !important;
+  margin-bottom: 8px !important;
+}
+
+.input-field {
+  background: #1a110a !important;
+  border: 3px solid #BC6C25 !important;
+  border-radius: 4px !important;
+  padding: 14px 16px !important;
+  color: #FEFAE0 !important;
+  font-family: var(--font-sans) !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.6), 0 3px 0 #0a0705 !important;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease !important;
+}
+
+.input-field:focus {
+  border-color: #DDA15E !important;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.6), 0 0 0 2px rgba(221, 161, 94, 0.4), 0 3px 0 #0a0705 !important;
+}
+
+.input-field.code-input {
+  font-family: var(--font-mono) !important;
+  font-size: 28px !important;
+  font-weight: 900 !important;
+  letter-spacing: 10px !important;
+  text-align: center !important;
+  text-transform: uppercase !important;
+  color: #DDA15E !important;
+  text-shadow: 2px 2px 0 #0a0705 !important;
+}
+
+.input-field::placeholder {
+  color: #8a7a5e !important;
+}
+
+/* ================================================================
+   BUTTONS — Retro 3D RPG Stepped Buttons
+   ================================================================ */
+.btn, .btn-confirm-lockin, .btn-lock-slider-order {
+  font-family: var(--font-sans) !important;
+  font-weight: 900 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.6px !important;
+  border: 3px solid #0f0b08 !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+  transition: transform 0.1s, box-shadow 0.1s !important;
+}
+
+.btn:active, .btn-confirm-lockin:active, .btn-lock-slider-order:active {
+  transform: translateY(3px) !important;
+  box-shadow: 0 1px 0 #0a0705 !important;
+}
+
+.btn-emerald, .btn-confirm-lockin, .btn-lock-slider-order {
+  background: linear-gradient(180deg, #DDA15E, #BC6C25) !important;
+  color: #1a110a !important;
+  box-shadow: inset 1px 1px 0 #e8bb7e, inset -1px -1px 0 #8f4e14, 0 5px 0 #0a0705 !important;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.4) !important;
+}
+
+.btn-emerald:hover, .btn-confirm-lockin:hover, .btn-lock-slider-order:hover {
+  background: linear-gradient(180deg, #e8bb7e, #DDA15E) !important;
+}
+
+.btn-block {
+  padding: 16px 20px !important;
+  font-size: 16px !important;
+  margin-top: 12px !important;
+}
+
+/* Error Banner */
+.error-banner {
+  background: rgba(188, 108, 37, 0.2) !important;
+  border: 3px solid #BC6C25 !important;
+  color: #FEFAE0 !important;
+  font-family: var(--font-sans) !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  border-radius: 4px !important;
+  box-shadow: 0 3px 0 #0a0705 !important;
+  padding: 12px 14px !important;
+  margin-top: 16px !important;
+}
+
+/* ================================================================
+   SCREEN 2: LOBBY WAITING SCREEN
+   ================================================================ */
+.lobby-box {
+  text-align: center !important;
+  padding: 30px 20px !important;
+}
+
+.trader-avatar-ring {
+  background: #1a110a !important;
+  border: 3px solid #DDA15E !important;
+  box-shadow: 0 3px 0 #0a0705 !important;
+  border-radius: 50% !important;
+}
+
+.trader-greet {
+  font-family: var(--font-sans) !important;
+  font-size: 20px !important;
+  font-weight: 800 !important;
+  color: #FEFAE0 !important;
+  margin: 12px 0 6px 0 !important;
+}
+
+.trader-greet strong {
+  color: #DDA15E !important;
+}
+
+.room-tag {
+  font-family: var(--font-sans) !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  color: #e4d8ba !important;
+}
+
+.room-tag .text-gold {
+  font-family: var(--font-mono) !important;
+  color: #DDA15E !important;
+}
+
+.sync-tag {
+  color: #8fbc3a !important;
+  font-weight: 800 !important;
+}
+
+.starting-capital-card {
+  background: #1a110a !important;
+  border: 3px solid #BC6C25 !important;
+  border-radius: 4px !important;
+  box-shadow: inset 0 0 0 2px rgba(0,0,0,0.5), 0 3px 0 #0a0705 !important;
+  padding: 16px !important;
+  margin: 20px 0 !important;
+}
+
+.cap-label {
+  font-family: var(--font-sans) !important;
+  font-size: 11px !important;
+  font-weight: 800 !important;
+  color: #DDA15E !important;
+  letter-spacing: 0.6px !important;
+}
+
+.cap-val {
+  font-family: var(--font-mono) !important;
+  font-size: 28px !important;
+  font-weight: 900 !important;
+  color: #8fbc3a !important;
+  text-shadow: 1px 1px 0 #0a0705 !important;
+}
+
+.waiting-indicator {
+  font-family: var(--font-sans) !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  color: #bda886 !important;
+}
+
+.arcade-spinner {
+  border-top-color: #DDA15E !important;
+}
+
+/* ================================================================
+   SCREEN 3: DECISION WINDOW / SLIDER / ANALYST
+   ================================================================ */
+.decision-timer-bar {
+  background: #1a110a !important;
+  border: 3px solid #0f0b08 !important;
+  border-radius: 4px !important;
+  box-shadow: 0 3px 0 #0a0705 !important;
+  padding: 8px 12px !important;
+}
+
+.timer-tag {
+  font-family: var(--font-sans) !important;
+  font-size: 11px !important;
+  font-weight: 800 !important;
+  color: #DDA15E !important;
+  letter-spacing: 0.6px !important;
+}
+
+.timer-num {
+  font-family: var(--font-mono) !important;
+  font-size: 16px !important;
+  font-weight: 900 !important;
+  color: #FEFAE0 !important;
+}
+
+.timer-track {
+  background: #0f0b08 !important;
+  border: 1px solid #2c1e14 !important;
+  border-radius: 2px !important;
+}
+
+.timer-fill {
+  background: linear-gradient(90deg, #6b8e23, #DDA15E, #BC6C25) !important;
+}
+
+/* Shady Analyst Box */
+.analyst-hire-card, .analyst-memo-card {
+  background: rgba(221, 161, 94, 0.1) !important;
+  border: 3px solid #BC6C25 !important;
+  border-radius: 4px !important;
+  box-shadow: 0 4px 0 #0a0705 !important;
+}
+
+.analyst-title {
+  font-family: var(--font-sans) !important;
+  font-size: 13px !important;
+  font-weight: 900 !important;
+  color: #DDA15E !important;
+}
+
+.analyst-subtitle {
+  font-family: var(--font-sans) !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  color: #e4d8ba !important;
+}
+
+.btn-hire-analyst {
+  background: linear-gradient(180deg, #BC6C25, #8f4e14) !important;
+  border: 2px solid #0f0b08 !important;
+  border-radius: 3px !important;
+  color: #FEFAE0 !important;
+  font-family: var(--font-sans) !important;
+  font-size: 12px !important;
+  font-weight: 800 !important;
+  box-shadow: 0 3px 0 #0a0705 !important;
+}
+
+/* Slider Allocation Card */
+.slider-card-tag {
+  font-family: var(--font-sans) !important;
+  font-size: 11px !important;
+  font-weight: 800 !important;
+  color: #DDA15E !important;
+  letter-spacing: 0.6px !important;
+}
+
+.slider-live-pct {
+  font-family: var(--font-mono) !important;
+  font-size: 20px !important;
+  font-weight: 900 !important;
+  color: #DDA15E !important;
+}
+
+.split-box {
+  background: #1a110a !important;
+  border: 2px solid #BC6C25 !important;
+  border-radius: 4px !important;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.5), 0 2px 0 #0a0705 !important;
+}
+
+.split-label {
+  font-family: var(--font-sans) !important;
+  font-size: 10px !important;
+  font-weight: 800 !important;
+  color: #bda886 !important;
+  letter-spacing: 0.5px !important;
+}
+
+.split-val {
+  font-family: var(--font-mono) !important;
+  font-size: 20px !important;
+  font-weight: 900 !important;
+}
+
+.split-sub {
+  font-family: var(--font-sans) !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  color: #8a7a5e !important;
+}
+
+/* Granular Staking Chips: 0%, 25%, 50%, 75%, 100% */
+.slider-preset-chips {
+  display: flex !important;
+  gap: 6px !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  margin: 12px 0 !important;
+}
+
+.btn-slider-preset {
+  background: #101626 !important;
+  border: 2px solid #BC6C25 !important;
+  color: #e4d8ba !important;
+  font-family: var(--font-sans) !important;
+  font-size: 12px !important;
+  font-weight: 800 !important;
+  border-radius: 4px !important;
+  padding: 8px 12px !important;
+  box-shadow: 0 3px 0 #0a0705 !important;
+  cursor: pointer !important;
+  transition: all 0.12s ease !important;
+}
+
+.btn-slider-preset:hover {
+  transform: translateY(-1px) !important;
+}
+
+.btn-slider-preset:active {
+  transform: translateY(2px) !important;
+  box-shadow: 0 1px 0 #0a0705 !important;
+}
+
+/* 0% PASS (SAFE) — Glowing Emerald */
+.btn-slider-preset[data-pct="0"] {
+  border-color: #10b981 !important;
+  color: #34d399 !important;
+}
+.btn-slider-preset[data-pct="0"].active {
+  background: linear-gradient(180deg, #10b981, #064e3b) !important;
+  color: #FEFAE0 !important;
+  border-color: #34d399 !important;
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.5), 0 3px 0 #0a0705 !important;
+}
+
+/* 25%, 50%, 75% — Warm Amber Gold */
+.btn-slider-preset[data-pct="25"],
+.btn-slider-preset[data-pct="50"],
+.btn-slider-preset[data-pct="75"] {
+  border-color: #f59e0b !important;
+  color: #fbbf24 !important;
+}
+.btn-slider-preset[data-pct="25"].active,
+.btn-slider-preset[data-pct="50"].active,
+.btn-slider-preset[data-pct="75"].active {
+  background: linear-gradient(180deg, #f59e0b, #b45309) !important;
+  color: #07090e !important;
+  border-color: #fbbf24 !important;
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.5), 0 3px 0 #0a0705 !important;
+}
+
+/* 100% ALL-IN — Glowing Crimson Red */
+.btn-slider-preset.chip-all-in,
+.btn-slider-preset[data-pct="100"] {
+  border-color: #ef4444 !important;
+  color: #f87171 !important;
+}
+.btn-slider-preset.chip-all-in.active,
+.btn-slider-preset[data-pct="100"].active {
+  background: linear-gradient(180deg, #ef4444, #991b1b) !important;
+  color: #FEFAE0 !important;
+  border-color: #f87171 !important;
+  box-shadow: 0 0 14px rgba(239, 68, 68, 0.6), 0 3px 0 #0a0705 !important;
+}
+
+/* Math Projection Simulator */
+.math-projection-col {
+  background: #1a110a !important;
+  border: 2px solid #0f0b08 !important;
+  border-radius: 4px !important;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.4), 0 2px 0 #0a0705 !important;
+}
+
+.proj-label {
+  font-family: var(--font-sans) !important;
+  font-size: 10px !important;
+  font-weight: 800 !important;
+}
+
+.proj-delta {
+  font-family: var(--font-mono) !important;
+  font-size: 20px !important;
+  font-weight: 900 !important;
+}
+
+.proj-sub {
+  font-family: var(--font-sans) !important;
+  font-size: 11px !important;
+  color: #bda886 !important;
+}
+
+.proj-total-val {
+  font-family: var(--font-mono) !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+}
+
+/* ================================================================
+   SCREEN 4: SUBMITTED / LOCKED IN
+   ================================================================ */
+.submitted-box {
+  text-align: center !important;
+  padding: 30px 20px !important;
+}
+
+.locked-icon-box {
+  background: #1a110a !important;
+  border: 3px solid #DDA15E !important;
+  border-radius: 50% !important;
+  box-shadow: 0 3px 0 #0a0705 !important;
+}
+
+.sub-title {
+  font-family: var(--font-sans) !important;
+  font-size: 26px !important;
+  font-weight: 900 !important;
+  color: #FEFAE0 !important;
+  text-shadow: 2px 2px 0 #0a0705 !important;
+}
+
+.sub-desc {
+  font-family: var(--font-sans) !important;
+  font-size: 14px !important;
+  color: #e4d8ba !important;
+}
+
+.locked-choice-badge {
+  background: #1a110a !important;
+  border: 3px solid #BC6C25 !important;
+  border-radius: 4px !important;
+  box-shadow: inset 0 0 0 2px rgba(0,0,0,0.5), 0 3px 0 #0a0705 !important;
+  padding: 16px !important;
+}
+
+.locked-label {
+  font-family: var(--font-sans) !important;
+  font-size: 11px !important;
+  font-weight: 800 !important;
+  color: #DDA15E !important;
+  letter-spacing: 0.6px !important;
+}
+
+.locked-val {
+  font-family: var(--font-sans) !important;
+  font-size: 18px !important;
+  font-weight: 900 !important;
+  color: #FEFAE0 !important;
+}
+
+.locked-amount {
+  font-family: var(--font-mono) !important;
+  font-size: 14px !important;
+  font-weight: 800 !important;
+}
+
+/* ================================================================
+   SCREEN 5: THE RECEIPT (ROUND RESULT)
+   ================================================================ */
+.card-receipt {
+  border: 4px solid #0f0b08 !important;
+  border-radius: 4px !important;
+}
+
+.receipt-header {
+  border-bottom: 3px solid #0f0b08 !important;
+  background: rgba(0,0,0,0.2) !important;
+}
+
+.receipt-title {
+  font-family: var(--font-sans) !important;
+  font-size: 13px !important;
+  font-weight: 900 !important;
+  color: #DDA15E !important;
+}
+
+.receipt-round {
+  font-family: var(--font-sans) !important;
+  font-size: 11px !important;
+  font-weight: 800 !important;
+  background: rgba(188, 108, 37, 0.3) !important;
+  border: 2px solid #BC6C25 !important;
+  color: #d89050 !important;
+  border-radius: 2px !important;
+}
+
+.result-delta-card {
+  background: #1a110a !important;
+  border: 2px solid #0f0b08 !important;
+  border-radius: 4px !important;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.5), 0 3px 0 #0a0705 !important;
+}
+
+.delta-label, .rcash-label {
+  font-family: var(--font-sans) !important;
+  font-size: 11px !important;
+  font-weight: 800 !important;
+  color: #bda886 !important;
+}
+
+.delta-val, .rcash-val {
+  font-family: var(--font-mono) !important;
+  font-weight: 900 !important;
+}
+
+.result-summary-box {
+  background: rgba(221, 161, 94, 0.08) !important;
+  border: 2px solid rgba(221, 161, 94, 0.25) !important;
+  border-radius: 4px !important;
+  font-family: var(--font-sans) !important;
+  color: #e4d8ba !important;
+  font-size: 14px !important;
+  line-height: 1.5 !important;
+}
+
+.receipt-story-label {
+  font-family: var(--font-sans) !important;
+  font-size: 12px !important;
+  font-weight: 800 !important;
+  color: #DDA15E !important;
+}
+
+/* ================================================================
+   MODALS: CONFIRM ORDER & FIELD DOSSIER
+   ================================================================ */
+.confirm-backdrop, .dossier-backdrop, .drawer-backdrop {
+  background: rgba(10, 7, 5, 0.85) !important;
+}
+
+.confirm-tag, .dossier-modal-tag {
+  font-family: var(--font-sans) !important;
+  font-size: 11px !important;
+  font-weight: 800 !important;
+  color: #DDA15E !important;
+}
+
+.confirm-title, .dossier-modal-title {
+  font-family: var(--font-sans) !important;
+  font-size: 18px !important;
+  font-weight: 900 !important;
+  color: #FEFAE0 !important;
+}
+
+.confirm-close-btn, .dossier-close-btn, .drawer-close-btn {
+  background: rgba(188, 108, 37, 0.2) !important;
+  border: 2px solid #BC6C25 !important;
+  color: #d89050 !important;
+  border-radius: 2px !important;
+  font-weight: 900 !important;
+}
+
+.btn-cancel-order {
+  background: transparent !important;
+  border: 2px solid #BC6C25 !important;
+  color: #d89050 !important;
+  border-radius: 4px !important;
+  font-family: var(--font-sans) !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+}
+
+/* ================================================================
+   PORTFOLIO DRAWER
+   ================================================================ */
+.portfolio-drawer {
+  background: #231810 !important;
+  border-top: 4px solid #DDA15E !important;
+  box-shadow: 0 -8px 0 #0a0705, 0 -20px 40px rgba(0, 0, 0, 0.8) !important;
+}
+
+.drawer-tag {
+  color: #DDA15E !important;
+  font-family: var(--font-sans) !important;
+  font-size: 11px !important;
+  font-weight: 800 !important;
+}
+
+.drawer-title {
+  font-family: var(--font-sans) !important;
+  font-size: 18px !important;
+  font-weight: 900 !important;
+  color: #FEFAE0 !important;
+}
+
+.drawer-networth {
+  font-family: var(--font-mono) !important;
+  font-size: 14px !important;
+  font-weight: 800 !important;
+  color: #8fbc3a !important;
+}
+
+/* ================================================================
+   PLAYER 3-DEAL CARDS GRID & SELECTION STYLES
+   ================================================================ */
+.player-opportunity-header {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.opp-select-hint {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 800;
+  color: #DDA15E;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  background: rgba(221, 161, 94, 0.15);
+  border: 1px solid rgba(221, 161, 94, 0.35);
+  padding: 4px 12px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.single-card-viewport {
+  width: 100%;
+  max-width: 360px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+/* ================================================================
+   TEXT HELPERS
+   ================================================================ */
+.text-emerald { color: #8fbc3a !important; }
+.text-gold { color: #DDA15E !important; }
+.text-coral { color: #ef4444 !important; }
+.text-cyan { color: #e8bb7e !important; }
+
+/* ================================================================
+   LIQUIDITY BOMB (HOT POTATO) MINI-GAME SCREEN STYLES
+   ================================================================ */
+.bomb-screen-container {
+  width: 100%;
+  max-width: 440px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  border-radius: 8px;
+  border: 4px solid #0f0b08;
+  box-shadow: 0 8px 0 #0a0705;
+  background: #231810;
+  transition: all 0.2s ease;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.bomb-screen-container.has-bomb-active {
+  border-color: #ef4444 !important;
+  box-shadow: 0 0 25px rgba(239, 68, 68, 0.6), 0 8px 0 #0a0705 !important;
+  background: radial-gradient(circle at center, #3d1414 0%, #1f0a0a 100%) !important;
+  animation: bombPulseBg 0.6s infinite alternate;
+}
+
+@keyframes bombPulseBg {
+  from { background-color: #2a0e0e; }
+  to { background-color: #4a1515; }
+}
+
+.bomb-alert-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #1a110a;
+  border: 2px solid #ef4444;
+  padding: 6px 16px;
+  border-radius: 4px;
+}
+
+.bomb-hazard-icon {
+  font-size: 16px;
+  animation: hazardBlink 0.5s infinite alternate;
+}
+
+@keyframes hazardBlink {
+  from { opacity: 0.3; }
+  to { opacity: 1; }
+}
+
+.bomb-alert-title {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  color: #ef4444;
+  text-transform: uppercase;
+}
+
+/* Bomb Countdown Timer */
+.bomb-timer-widget {
+  width: 100%;
+  text-align: center;
+  background: #18100a;
+  border: 3px solid #0f0b08;
+  padding: 12px;
+  border-radius: 6px;
+}
+
+.bomb-timer-digits {
+  font-family: var(--font-mono);
+  font-size: 48px;
+  font-weight: 900;
+  color: #ef4444;
+  line-height: 1;
+  text-shadow: 0 0 15px rgba(239, 68, 68, 0.8);
+}
+
+.bomb-timer-sub {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 800;
+  color: #d89050;
+  letter-spacing: 0.5px;
+  margin-top: 4px;
+  margin-bottom: 8px;
+}
+
+.bomb-timer-track {
+  width: 100%;
+  height: 10px;
+  background: #0f0b08;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.bomb-timer-fill {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(90deg, #ef4444, #f59e0b);
+  transition: width 0.08s linear;
+}
+
+/* Bomb State Views */
+.bomb-state-view {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+  padding: 8px 0;
+}
+
+/* 1. Holder View */
+.bomb-pixel-avatar {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bomb-pixel-icon {
+  font-size: 64px;
+  animation: bombShake 0.2s infinite ease-in-out;
+}
+
+@keyframes bombShake {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(-3px, 2px) rotate(-4deg); }
+  50% { transform: translate(3px, -2px) rotate(4deg); }
+  75% { transform: translate(-2px, -3px) rotate(-2deg); }
+  100% { transform: translate(2px, 3px) rotate(2deg); }
+}
+
+.bomb-pulsing-fuse {
+  position: absolute;
+  top: -10px;
+  right: 15px;
+  font-size: 28px;
+  animation: sparkPulse 0.15s infinite alternate;
+}
+
+@keyframes sparkPulse {
+  from { transform: scale(0.8); opacity: 0.7; }
+  to { transform: scale(1.3); opacity: 1; }
+}
+
+.bomb-holder-title {
+  font-family: var(--font-sans);
+  font-size: 24px;
+  font-weight: 900;
+  color: #ef4444;
+  margin: 0;
+  text-shadow: 0 0 10px rgba(239, 68, 68, 0.7);
+}
+
+.bomb-holder-desc {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 700;
+  color: #FEFAE0;
+  margin: 4px 0 0 0;
+}
+
+.btn-giant-pass-bomb {
+  width: 100%;
+  min-height: 90px;
+  background: linear-gradient(180deg, #ef4444 0%, #dc2626 50%, #991b1b 100%) !important;
+  border: 4px solid #fef08a !important;
+  border-radius: 8px !important;
+  box-shadow: 0 8px 0 #450a0a, 0 0 20px rgba(239, 68, 68, 0.8) !important;
+  color: #ffffff !important;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 14px;
+  transition: transform 0.05s ease, box-shadow 0.05s ease;
+  animation: buttonPulse 0.4s infinite alternate;
+}
+
+@keyframes buttonPulse {
+  from { transform: scale(1); }
+  to { transform: scale(1.02); }
+}
+
+.btn-giant-pass-bomb:active {
+  transform: translateY(6px) !important;
+  box-shadow: 0 2px 0 #450a0a !important;
+}
+
+.pass-bomb-text {
+  font-family: var(--font-sans);
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.pass-bomb-sub {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 800;
+  color: #fef08a;
+  margin-top: 4px;
+  text-transform: uppercase;
+}
+
+/* 2. Safe View */
+.safe-shield-avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.25) 0%, transparent 70%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px dashed #10b981;
+}
+
+.safe-shield-icon {
+  font-size: 52px;
+}
+
+.bomb-safe-title {
+  font-family: var(--font-sans);
+  font-size: 24px;
+  font-weight: 900;
+  color: #34d399;
+  margin: 0;
+}
+
+.bomb-safe-subtitle {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 700;
+  color: #FEFAE0;
+  margin: 4px 0 12px 0;
+}
+
+.panic-warning-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(239, 68, 68, 0.12);
+  border: 2px solid rgba(239, 68, 68, 0.4);
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 800;
+  color: #fca5a5;
+}
+
+/* 3. Result View */
+.bomb-result-box {
+  background: #1a110a;
+  border: 3px solid #0f0b08;
+  padding: 20px 16px;
+  border-radius: 8px;
+}
+
+.bomb-result-icon {
+  font-size: 54px;
+}
+
+.bomb-result-title {
+  font-family: var(--font-sans);
+  font-size: 26px;
+  font-weight: 900;
+  margin: 0;
+}
+
+.bomb-result-delta {
+  font-family: var(--font-mono);
+  font-size: 32px;
+  font-weight: 900;
+  margin: 6px 0;
+}
+
+.bomb-result-desc {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 700;
+  color: #FEFAE0;
+  margin: 0 0 16px 0;
+}
+
+.bomb-cash-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #231810;
+  border: 2px solid #0f0b08;
+  padding: 10px 16px;
+  border-radius: 6px;
+  width: 100%;
+}
+
+.bcash-lbl {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 800;
+  color: #d89050;
+}
+
+.bcash-val {
+  font-family: var(--font-mono);
+  font-size: 18px;
+  font-weight: 900;
+}
+

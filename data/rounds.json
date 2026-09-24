@@ -1,0 +1,19 @@
+{
+  "rounds": [
+    { "round": 1, "offeredSectorIds": "all" },
+    { "round": 2, "offeredSectorIds": "all" },
+    { "round": 3, "offeredSectorIds": "all" },
+    { "round": 4, "offeredSectorIds": "all" },
+    { "round": 5, "offeredSectorIds": "all" },
+    { "round": 6, "offeredSectorIds": "all" },
+    { "round": 7, "offeredSectorIds": "all" },
+    { "round": 8, "offeredSectorIds": "all" },
+    { "round": 9, "offeredSectorIds": "all" },
+    { "round": 10, "offeredSectorIds": "all" },
+    { "round": 11, "offeredSectorIds": "all" },
+    { "round": 12, "offeredSectorIds": "all" },
+    { "round": 13, "offeredSectorIds": "all" },
+    { "round": 14, "offeredSectorIds": "all" },
+    { "round": 15, "offeredSectorIds": "all" }
+  ]
+}

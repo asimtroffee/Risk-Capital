@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Risk Capital - Arcade Wall Street (Host)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="host.css">
+  <link rel="stylesheet" href="opportunity-card.css?v=2">
+  <link rel="stylesheet" href="host-pixel-theme.css?v=3">
+</head>
+<body class="host-body">
+  <!-- Dynamic Background Grid & Glows -->
+  <div class="bg-fx">
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+    <div class="grid-overlay"></div>
+    <div class="scanlines-overlay"></div>
+  </div>
+
+  <div id="app" class="host-container">
+    <!-- Header Bar & High-Density Telemetry -->
+    <header class="host-header">
+      <div class="logo-group">
+        <div class="logo-badge">RC ⚡</div>
+        <div class="brand-text">
+          <div class="title-row">
+            <span class="title">RISK CAPITAL</span>
+            <span class="arcade-tag">ARCADE WALL STREET</span>
+          </div>
+          <span class="subtitle">High-Stakes Live Market Party Arena</span>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <div id="room-status-badge" class="header-status-badge hidden">
+          <span class="live-dot"></span>
+          <span id="header-status-text">LOBBY</span>
+        </div>
+
+        <div id="header-code-container" class="header-code-container hidden">
+          <span class="code-label">ROOM</span>
+          <span id="header-room-code" class="code-value">----</span>
+        </div>
+
+        <button type="button" id="btn-host-end-game" class="btn-host-end-game hidden" title="End Game Immediately and Crown Winners">
+          <span class="end-icon">⏹️</span>
+          <span class="end-text">END GAME EARLY</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- MAIN VIEW AREA -->
+    <main class="host-main">
+      
+      <!-- 1. LANDING / CREATE VIEW -->
+      <section id="view-create" class="host-view active">
+        <div class="hero-card">
+          <div class="hero-tag">🔥 AUDIENCE EDITION • 500+ CONCURRENT TRADERS</div>
+          <h1 class="hero-title">ALLOCATE. SPECULATE.<br><span class="gradient-text">DOMINATE THE FLOOR!</span></h1>
+          <p class="hero-desc">
+            A fast-paced, high-stakes market party game. Everyone plays simultaneously on their phone — with real-time liquidity shocks, insider leaks, and brutal market crashes!
+          </p>
+          
+          <div class="mode-select-box">
+            <label for="select-game-mode" class="mode-select-label">🎮 SELECT GAME ENGINE / MODE</label>
+            <div class="select-wrapper">
+              <select id="select-game-mode" class="mode-dropdown">
+                <option value="mode_1_sprint" selected>⚡ Quick Cash: Race to the Moon (10 Rounds • 40s Timer • $500k Target)</option>
+                <option value="mode_macro_15">🏛️ Macroeconomic Marathon (15 Rounds • Portfolio Pipeline & Dividends • 25s Timer)</option>
+              </select>
+            </div>
+            <div class="mode-desc-pill" id="mode-desc-pill">
+              🎯 First player to reach <strong>$500,000</strong> wins the match! (Or highest at Round 10)
+            </div>
+          </div>
+
+          <!-- 5 Curated Sets Selector (50 Real-World Opportunities) -->
+          <div class="sets-selector-section" id="create-sets-section">
+            <div class="sets-selector-header">
+              <span class="sets-badge">📦 50 DEALS TOTAL</span>
+              <h3 class="sets-title">CHOOSE 10-ROUND OPPORTUNITY SET</h3>
+            </div>
+            <div class="sets-grid" id="create-sets-grid">
+              <button type="button" class="set-card-btn active" data-set="1">
+                <div class="set-card-top">
+                  <span class="set-num-badge">SET 1</span>
+                  <span class="set-icon">🚜</span>
+                </div>
+                <strong class="set-name">AgriTech & Smart Mobility</strong>
+                <span class="set-sub">Deals 1–10 • Agriculture & Automotive</span>
+              </button>
+              <button type="button" class="set-card-btn" data-set="2">
+                <div class="set-card-top">
+                  <span class="set-num-badge">SET 2</span>
+                  <span class="set-icon">🧬</span>
+                </div>
+                <strong class="set-name">BioTech & Enterprise B2B</strong>
+                <span class="set-sub">Deals 11–20 • Biotechnology & SaaS</span>
+              </button>
+              <button type="button" class="set-card-btn" data-set="3">
+                <div class="set-card-top">
+                  <span class="set-num-badge">SET 3</span>
+                  <span class="set-icon">🧋</span>
+                </div>
+                <strong class="set-name">Chemicals & Food Empire</strong>
+                <span class="set-sub">Deals 21–30 • Specialty Chem & F&B</span>
+              </button>
+              <button type="button" class="set-card-btn" data-set="4">
+                <div class="set-card-top">
+                  <span class="set-num-badge">SET 4</span>
+                  <span class="set-icon">⚡</span>
+                </div>
+                <strong class="set-name">EdTech & Deep Electronics</strong>
+                <span class="set-sub">Deals 31–40 • Education & Silicon</span>
+              </button>
+              <button type="button" class="set-card-btn" data-set="5">
+                <div class="set-card-top">
+                  <span class="set-num-badge">SET 5</span>
+                  <span class="set-icon">🎮</span>
+                </div>
+                <strong class="set-name">Gaming & Beauty Mogul</strong>
+                <span class="set-sub">Deals 41–50 • Gaming & Cosmetics</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Custom JSON Scenario Upload (Mode 1) -->
+          <div class="custom-scenario-section" id="mode1-scenario-uploader">
+            <div class="scenario-section-header">
+              <div class="scenario-title-badge">📁 CUSTOM CONTENT / JSON DECK</div>
+              <button type="button" id="btn-download-template" class="btn-link-action">
+                <span>📥 Download Sample Scenario (.json)</span>
+              </button>
+            </div>
+
+            <div class="scenario-dropzone" id="scenario-dropzone">
+              <input type="file" id="input-scenario-file" accept=".json,application/json" class="file-input-hidden">
+              <div class="dropzone-content">
+                <div class="dropzone-icon">📄</div>
+                <div class="dropzone-text">
+                  <strong>Drag & drop a scenario .json file</strong> or <span class="browse-link">browse your device</span>
+                </div>
+                <div class="dropzone-sub">Customize businesses, risk options, clues, tips, and target capitals!</div>
+              </div>
+            </div>
+
+            <!-- Uploaded Scenario Preview Card (hidden by default) -->
+            <div id="scenario-preview-card" class="scenario-preview-card hidden">
+              <div class="preview-header">
+                <div class="preview-title-row">
+                  <span class="badge-custom">CUSTOM DECK LOADED</span>
+                  <h4 id="preview-scenario-name" class="preview-scenario-name">Custom Scenario Title</h4>
+                </div>
+                <button type="button" id="btn-remove-custom-scenario" class="btn-pill-danger" title="Remove custom JSON and use default">✕ Reset to Default</button>
+              </div>
+              <p id="preview-scenario-desc" class="preview-scenario-desc">Scenario description goes here...</p>
+              <div class="preview-meta-chips">
+                <span class="preview-chip" id="preview-rounds-chip">📊 10 Rounds</span>
+                <span class="preview-chip" id="preview-start-chip">💵 Starting: $100,000</span>
+                <span class="preview-chip" id="preview-target-chip">🎯 Target: $500,000</span>
+              </div>
+              <div class="preview-businesses-list" id="preview-businesses-list">
+                <!-- Injected via JS -->
+              </div>
+            </div>
+
+            <div id="scenario-error" class="status-msg error hidden"></div>
+          </div>
+
+          <div class="hero-actions">
+            <button id="btn-create-room" class="btn btn-arcade btn-giant">
+              <span class="btn-text">CREATE NEW MARKET ARENA ⚡</span>
+              <span class="btn-shine"></span>
+            </button>
+          </div>
+          <div id="create-error" class="status-msg error hidden"></div>
+        </div>
+      </section>
+
+      <!-- 2. LOBBY VIEW -->
+      <section id="view-lobby" class="host-view">
+        <div class="lobby-grid">
+          <!-- Left: Big Join Callout with Chunky Room Code Tiles -->
+          <div class="lobby-card join-card">
+            <div class="card-tag-row">
+              <div class="card-tag">📱 HOW TO JOIN FROM YOUR PHONE</div>
+              <div id="lobby-mode-badge" class="mode-badge-pill">⚡ THE CASH SPRINT (10 ROUNDS)</div>
+            </div>
+
+            <div class="lobby-scenario-banner" id="lobby-scenario-banner">
+              <div class="scenario-banner-left">
+                <span class="scenario-pill-icon">✨</span>
+                <span id="lobby-scenario-name-text">Set 1: AgriTech & Smart Mobility (10 Deals)</span>
+              </div>
+              <button id="btn-lobby-change-scenario" class="btn-xs-glass">📁 Custom JSON</button>
+            </div>
+
+            <!-- Lobby 5-Set Switcher Pill Grid -->
+            <div class="lobby-sets-bar" id="lobby-sets-bar">
+              <span class="lobby-sets-lbl">DEAL SET:</span>
+              <div class="lobby-sets-btns">
+                <button type="button" class="btn-lobby-set active" data-set="1" title="Deals 1-10: Agriculture & Auto">Set 1 🚜</button>
+                <button type="button" class="btn-lobby-set" data-set="2" title="Deals 11-20: BioTech & SaaS">Set 2 🧬</button>
+                <button type="button" class="btn-lobby-set" data-set="3" title="Deals 21-30: Chemicals & Food">Set 3 🧋</button>
+                <button type="button" class="btn-lobby-set" data-set="4" title="Deals 31-40: EdTech & Silicon">Set 4 ⚡</button>
+                <button type="button" class="btn-lobby-set" data-set="5" title="Deals 41-50: Gaming & Beauty">Set 5 🎮</button>
+              </div>
+            </div>
+
+            <div class="join-instructions">
+              <span class="inst-step">1. Open browser & go to:</span>
+              <span class="inst-url" id="display-join-url">player.html</span>
+              <span class="inst-step">2. Enter 4-Letter Room Key:</span>
+            </div>
+
+            <div class="giant-code-wrapper">
+              <div id="lobby-room-code" class="giant-code">----</div>
+              <div class="code-subtext">No App Download • Instant 1-Second Join</div>
+            </div>
+
+            <div class="lobby-cta">
+              <button id="btn-start-round-1" class="btn btn-emerald btn-huge">
+                <span class="btn-text">START ROUND 1 🚀</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Right: Live Investor Counter & Ticker Feed -->
+          <div class="lobby-card stats-card">
+            <div class="stats-header">
+              <span class="card-tag">TRADERS IN THE ROOM</span>
+              <span class="badge-live"><span class="pulse-dot"></span> LIVE LOBBY</span>
+            </div>
+
+            <div class="counter-box" id="lobby-counter-box">
+              <div id="lobby-player-count" class="counter-number">0</div>
+              <div class="counter-label">Active Investors Ready</div>
+            </div>
+
+            <div class="market-conditions-preview">
+              <div class="preview-title">Round 1 Allocation Preview</div>
+              <div class="preview-chips">
+                <span class="chip chip-safe">🟢 Safe Anchor (Low Risk)</span>
+                <span class="chip chip-balanced">🟡 Medium Risk (Deal)</span>
+                <span class="chip chip-high">🔴 High Risk (Rocket)</span>
+              </div>
+            </div>
+
+            <div class="join-feed-container">
+              <div class="feed-header">Recent Traders Joined</div>
+              <div id="lobby-join-feed" class="join-feed">
+                <div class="feed-placeholder">Waiting for traders to join...</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. MARKET INTEL / TICKER VIEW (SERVER-CONTROLLED SUB-PHASE) -->
+      <section id="view-intel" class="host-view">
+        <div class="intel-layout">
+          <!-- Alarm Banner -->
+          <div class="intel-alert-banner">
+            <div class="alert-left">
+              <span class="alert-icon-box">📢</span>
+              <div class="alert-text-group">
+                <span class="alert-title">BREAKING MARKET NEWS // DECLASSIFIED WIRE</span>
+                <span class="alert-sub">MACRO SHOCKWAVE ALERT • INCOMING VOLATILITY</span>
+              </div>
+            </div>
+            <div class="alert-right">
+              <span class="alert-feed-tag"><span class="feed-dot"></span> LIVE FEED</span>
+            </div>
+          </div>
+
+          <div class="intel-topbar">
+            <div class="intel-header-info">
+              <span class="round-badge" id="intel-round-label">ROUND 1</span>
+              <span class="intel-live-badge"><span class="pulse-dot"></span> MARKET INTEL BRIEFING</span>
+            </div>
+            <div class="timer-widget intel-timer-widget">
+              <div class="timer-digits" id="intel-timer-digits">10</div>
+              <div class="timer-sub">TRADING OPENS IN</div>
+              <div class="timer-progress-bg">
+                <div id="intel-timer-bar" class="timer-progress-fill intel-bar"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="intel-main-card">
+            <div class="intel-persona-row">
+              <div class="intel-avatar-ring">
+                <div class="intel-avatar" id="intel-avatar">🏛️</div>
+              </div>
+              <div class="intel-persona-details">
+                <div class="catalyst-origin-row">
+                  <span class="origin-tag">INSIDER SOURCE</span>
+                </div>
+                <h3 class="intel-name" id="intel-persona-name">Dr. Aris Vance</h3>
+                <span class="intel-role" id="intel-persona-role">Chief Macro Strategist, Global Fed</span>
+              </div>
+              <div class="intel-hint-strength" id="intel-hint-strength">
+                <span class="strength-tag">CONFIDENCE: HIGH</span>
+              </div>
+            </div>
+
+            <div class="intel-headline-box">
+              <div class="ticker-prefix">
+                <span class="pulse-dot"></span>
+                <span>BREAKING WIRE HEADLINE:</span>
+              </div>
+              <h1 class="intel-headline" id="intel-headline-text">CENTRAL BANK SIGNALS STABLE BENCHMARK COUPON RATES</h1>
+            </div>
+
+            <div class="intel-body-box">
+              <p class="intel-body" id="intel-body-text">
+                Treasury yields expected to hold firm as sovereign debt liquidity remains guaranteed across major global economies.
+              </p>
+            </div>
+
+            <div class="intel-footer-row">
+              <div class="intel-affected-sectors">
+                <span class="sector-tag-label">IMPACTED ASSETS:</span>
+                <div class="sector-chips-list" id="intel-sector-chips">
+                  <span class="chip chip-safe">🟢 Sovereign Bonds</span>
+                </div>
+              </div>
+              <div class="intel-probabilistic-hint" id="intel-probabilistic-hint">
+                💡 Sovereign debt coupon yields guaranteed at steady +3.0%.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. IN-ROUND ACTIVE VIEW (16:9 CINEMATIC BROADCAST: HORIZONTAL STOCK TICKER ARENA) -->
+      <section id="view-round" class="host-view host-broadcast-arena">
+        
+        <!-- ZONE 1: THE TOP BAR (THE CLOCK & EMERGENCY ALARMS) -->
+        <header class="broadcast-topbar">
+          <div class="topbar-left-info">
+            <span class="broadcast-live-badge"><span class="pulse-dot"></span> LIVE BROADCAST</span>
+            <span class="round-badge" id="active-round-label">ROUND 1</span>
+            <span class="room-code-tag">ROOM <strong id="broadcast-room-code" class="text-gold">----</strong></span>
+          </div>
+
+          <!-- Emergency Siren Alarm (When any player crosses 80% to $500K) -->
+          <div class="topbar-center-alarm" id="moon-warning-banner" style="display: none;">
+            <span class="alarm-siren">⚠️</span>
+            <span class="alarm-text" id="moon-warning-text">PLAYER IS CLOSE TO THE MOON! ($400,000 / $500K)</span>
+            <span class="alarm-siren">⚠️</span>
+          </div>
+
+          <!-- Single Massive Stadium 40-Second Clock -->
+          <div class="topbar-clock-widget" id="broadcast-clock-widget">
+            <div class="clock-digits-box">
+              <span class="clock-digits" id="round-timer-digits">40</span>
+              <span class="clock-unit">SEC</span>
+            </div>
+            <div class="clock-progress-bar">
+              <div id="round-timer-bar" class="clock-progress-fill"></div>
+            </div>
+          </div>
+        </header>
+
+        <!-- ZONE 2: FULL-WIDTH HORIZONTAL LIVE STOCK / CRYPTO TICKER BOARD -->
+        <section class="broadcast-horizontal-stock-board">
+          <div class="stock-board-header">
+            <div class="stock-header-title">
+              <span class="stock-icon">📈</span>
+              <span class="stock-heading">LIVE FLOOR TRADERS // STOCKS LEADERBOARD</span>
+            </div>
+            <div class="stock-header-meta">
+              <span class="stock-target-chip">🎯 MOON TARGET: $500,000</span>
+              <span class="zone-live-pill"><span class="pulse-dot"></span> REAL-TIME</span>
+            </div>
+          </div>
+
+          <div id="host-live-leaderboard-list" class="horizontal-stock-ticker-track">
+            <!-- Dynamically injected with Horizontal Stock Tiles (#1 Golden Aura, Green/Red Stock Delta, Wager %) -->
+            <div class="lb-empty-placeholder">Waiting for traders to join...</div>
+          </div>
+        </section>
+
+        <!-- CENTER STAGE: 3 DEAL OPPORTUNITY CARDS & LIVE SENTIMENT BAR -->
+        <div class="broadcast-center-stage-v2">
+          
+          <!-- Live Deals Offered Cards (3 Dynamic Cards) -->
+          <div class="deals-stage-wrapper">
+            <div class="deals-stage-header">
+              <span class="deals-badge">💼 AVAILABLE ROUND OPPORTUNITIES</span>
+              <div class="submission-meter-compact">
+                <span class="battery-icon">🔋</span>
+                <span class="meter-counts">
+                  <strong id="round-submitted-count">0</strong> / <span id="round-total-count">0</span> Locked (<span id="round-percent-count">0%</span>)
+                </span>
+                <div class="meter-bar-mini">
+                  <div id="submission-bar-fill" class="meter-bar-fill" style="width: 0%"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="options-display-grid" id="round-options-container">
+              <!-- Injected dynamically with 3 Deal Cards -->
+            </div>
+          </div>
+
+          <!-- Crowd Sentiment Live Bar Strip -->
+          <div class="sentiment-strip-bar">
+            <div class="sentiment-strip-label">
+              <span>📊 CROWD SENTIMENT:</span>
+            </div>
+            <div class="sentiment-strip-items">
+              <div class="sentiment-strip-item safe">
+                <span class="dot-safe"></span>
+                <span>SAFE: <strong id="sentiment-safe-pct" class="text-emerald">0%</strong></span>
+              </div>
+              <div class="sentiment-strip-item med">
+                <span class="dot-med"></span>
+                <span>MEDIUM: <strong id="sentiment-med-pct" class="text-gold">0%</strong></span>
+              </div>
+              <div class="sentiment-strip-item high">
+                <span class="dot-high"></span>
+                <span>HIGH RISK: <strong id="sentiment-high-pct" class="text-coral">0%</strong></span>
+              </div>
+              <div class="sentiment-strip-item total">
+                <span>COMMITTED: <strong id="pulse-total-capital" class="text-emerald">$0</strong></span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ZONE 5: THE BOTTOM TICKER (THE DRAMA FEED) -->
+        <footer class="broadcast-bottom-ticker">
+          <div class="ticker-badge">
+            <span class="pulse-dot"></span>
+            <span class="ticker-badge-text">DRAMA FEED</span>
+          </div>
+          <div class="ticker-track">
+            <div id="drama-ticker-content" class="ticker-marquee-inner">
+              <span class="ticker-item">📢 Trading floor is OPEN! Choose your deal wisely on your mobile device.</span>
+              <span class="ticker-item">🚀 Target: First to $500,000 wins the Moon Championship!</span>
+              <span class="ticker-item">⚡ High Risk deals offer up to +120% multipliers!</span>
+            </div>
+          </div>
+        </footer>
+      </section>
+
+      <!-- 5. RESOLUTION & LEADERBOARD VIEW -->
+      <section id="view-resolved" class="host-view">
+        <div class="resolved-layout">
+          <div class="resolved-header">
+            <div class="resolved-header-top-row">
+              <div class="settle-status-row">
+                <span id="res-stage-indicator" class="settle-tag"><span class="pulse-dot"></span> STAGE 1: THE CONSENSUS</span>
+                <span class="consensus-tag">100% AUDITED</span>
+                <span id="resolved-mode-tag" class="mode-tag-pill">⚡ SPRINT TARGET: $500,000</span>
+              </div>
+              <div class="resolved-header-actions">
+                <button id="btn-launch-bomb" class="btn btn-coral btn-medium resolved-top-btn hidden">
+                  <span>💣 LAUNCH LIQUIDITY BOMB (MINI-GAME) ⚡</span>
+                </button>
+                <button id="btn-resolved-end-game" class="btn btn-host-end-game resolved-top-btn" title="End Game Early & Show Final Standings">
+                  <span>⏹️ END GAME EARLY</span>
+                </button>
+                <button id="btn-next-round" class="btn btn-arcade btn-medium resolved-top-btn">
+                  <span id="btn-next-round-text">START NEXT ROUND 🚀</span>
+                </button>
+              </div>
+            </div>
+            <h2 class="resolved-title" id="resolved-round-title">ROUND 1 MARKET SETTLEMENT</h2>
+            
+            <!-- Stage A Consensus Hero Callout -->
+            <div id="res-consensus-hero" class="consensus-hero-banner">
+              <span class="consensus-hero-title" id="res-consensus-hero-title">ROOM ALLOCATION CONSENSUS</span>
+            </div>
+
+            <!-- Stage B Breaking Headline & Verdict -->
+            <div id="resolved-breaking-headline" class="breaking-headline-card hidden">
+              <div class="breaking-tag" id="resolved-breaking-tag">⚡ MARKET VERDICT // BREAKING NEWS</div>
+              <div id="resolved-headline-text" class="breaking-headline-text">---</div>
+            </div>
+
+            <div id="resolved-sprint-goal-banner" class="sprint-goal-reached-banner hidden">
+              🏆 <strong>TARGET REACHED!</strong> One or more traders crossed $500,000!
+            </div>
+          </div>
+
+          <!-- Engagement Callouts: Oddest Decision Spotlight -->
+          <div id="spotlight-container" class="spotlight-wrapper">
+            <!-- Injected via JS -->
+          </div>
+
+          <div class="resolution-grid">
+            <!-- Left: Aggregate Split Stats -->
+            <div class="res-col-left">
+              <div class="res-card split-stats-card">
+                <div class="card-header-flex">
+                  <h3 class="res-card-title" id="split-stats-title">Room Allocation Breakdown</h3>
+                  <span class="badge-subtle">VOTE SPLIT</span>
+                </div>
+                <div class="split-bars-list" id="resolution-split-bars">
+                  <!-- Injected via JS -->
+                </div>
+
+                <div class="inaction-notice" id="resolution-inaction-box">
+                  <span class="inaction-tag">⚠️ INACTIVITY TAX</span>
+                  <span id="resolution-inaction-text">0 players timed out and incurred a 3% penalty.</span>
+                </div>
+              </div>
+
+              <!-- Macro Wealth Distribution (Only displayed in 15-Round mode) -->
+              <div class="res-card wealth-dist-card" id="wealth-dist-card">
+                <div class="card-header-flex">
+                  <h3 class="res-card-title">Macro Wealth Distribution</h3>
+                  <span class="badge-subtle">ROOM QUANTILES</span>
+                </div>
+                <div class="wealth-bars-container" id="wealth-distribution-container">
+                  <!-- Injected via JS -->
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: Race to $500k Podium / Leaderboard -->
+            <div class="res-card podium-card">
+              <div class="card-header-flex">
+                <h3 class="res-card-title" id="podium-section-title">🏆 Race to $500K Leaderboard</h3>
+                <span class="badge-subtle" id="podium-badge-subtle">TOP TRADERS</span>
+              </div>
+              <div class="podium-display" id="resolution-podium">
+                <!-- Injected via JS -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. LIQUIDITY BOMB (HOT POTATO) CINEMATIC BROADCAST ARENA -->
+      <section id="view-bomb" class="host-view host-bomb-arena">
+        <div class="bomb-arena-layout">
+          
+          <!-- Top Emergency Hazard Strobe Header -->
+          <header class="bomb-arena-topbar">
+            <div class="bomb-alert-pill">
+              <span class="bomb-strobe-icon">🚨</span>
+              <span class="bomb-alert-heading">LIQUIDITY BOMB INTERVENTION // SHOCK PROTOCOL</span>
+              <span class="bomb-strobe-icon">🚨</span>
+            </div>
+
+            <div class="bomb-host-clock-widget">
+              <span class="clock-prefix">DETONATION IN:</span>
+              <span class="bomb-host-clock-digits" id="bomb-host-timer-digits">10</span>
+              <span class="clock-unit">SEC</span>
+              <div class="bomb-host-progress-track">
+                <div id="bomb-host-timer-bar" class="bomb-host-progress-fill"></div>
+              </div>
+            </div>
+          </header>
+
+          <!-- Live Arena Stage: Active Bombs vs Safe Traders -->
+          <div class="bomb-arena-main-stage">
+            
+            <!-- Left Counter: Ticking Bombs -->
+            <div class="bomb-metric-card metric-danger">
+              <div class="bmetric-header">
+                <span class="bmetric-icon">💣</span>
+                <span class="bmetric-title">TICKING BOMBS ACTIVE</span>
+              </div>
+              <div class="bmetric-value text-coral" id="bomb-host-active-bombs">0</div>
+              <div class="bmetric-sub">50% OF ALL ROOM PARTICIPANTS</div>
+            </div>
+
+            <!-- Center Stage: Massive Bomb Animated Frame -->
+            <div class="bomb-center-visual-card">
+              <div class="bomb-visual-wrapper">
+                <div class="bomb-giant-icon">💣</div>
+                <div class="bomb-giant-spark">💥</div>
+              </div>
+              <h2 class="bomb-broadcast-headline">PASS THE BOMB OR LOSE -$10,000!</h2>
+              <p class="bomb-broadcast-sub">Traders with a bomb must tap their mobile screens to toss it before time expires.</p>
+              
+              <!-- Live Dynamic Stats Strip -->
+              <div class="bomb-quick-stats-strip">
+                <div class="bstat-chip">
+                  <span>⚡ TOTAL PASSES:</span>
+                  <strong id="bomb-host-pass-count" class="text-gold">0</strong>
+                </div>
+                <div class="bstat-chip">
+                  <span>💥 DETONATION DAMAGE:</span>
+                  <strong class="text-coral">-$10,000 EACH</strong>
+                </div>
+                <div class="bstat-chip">
+                  <span>🚫 PANIC MISCLICK FEE:</span>
+                  <strong class="text-gold">-$500</strong>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Counter: Safe Traders -->
+            <div class="bomb-metric-card metric-safe">
+              <div class="bmetric-header">
+                <span class="bmetric-icon">🛡️</span>
+                <span class="bmetric-title">SAFE TRADERS (NO BOMB)</span>
+              </div>
+              <div class="bmetric-value text-emerald" id="bomb-host-safe-traders">0</div>
+              <div class="bmetric-sub">TOUCHING SCREEN COSTS -$500 PANIC PENALTY</div>
+            </div>
+
+          </div>
+
+          <!-- Bottom Live Hot Potato Drama Feed -->
+          <footer class="bomb-bottom-feed">
+            <div class="bomb-feed-badge">
+              <span class="pulse-dot"></span>
+              <span>LIVE PASSING FEED</span>
+            </div>
+            <div class="bomb-feed-track">
+              <div id="bomb-feed-content" class="ticker-marquee-inner">
+                <span class="ticker-item">⚡ Liquidity Bomb Protocol Activated! 50% of the room has received a bomb!</span>
+              </div>
+            </div>
+          </footer>
+
+          <!-- Post-Detonation Resolution Modal (Shows automatically when timer hits 0) -->
+          <div id="bomb-host-resolution-modal" class="bomb-host-modal hidden">
+            <div class="bomb-host-modal-card">
+              <div class="bomb-modal-header">
+                <span class="bomb-boom-emoji">💥</span>
+                <h1 class="bomb-modal-title">DETONATION PROTOCOL COMPLETE!</h1>
+                <p class="bomb-modal-sub">The timers expired! Here are the casualties from the liquidity shockwave.</p>
+              </div>
+
+              <div class="bomb-modal-stats-grid">
+                <div class="bomb-mstat-box box-exploded">
+                  <span class="mstat-lbl">TRADERS WIPED OUT</span>
+                  <strong id="bomb-host-exploded-count" class="mstat-val text-coral">0</strong>
+                  <span class="mstat-sub">Lost -$10,000 each</span>
+                </div>
+                <div class="bomb-mstat-box box-survived">
+                  <span class="mstat-lbl">TRADERS SURVIVED</span>
+                  <strong id="bomb-host-survived-count" class="mstat-val text-emerald">0</strong>
+                  <span class="mstat-sub">Protected their capital</span>
+                </div>
+                <div class="bomb-mstat-box box-total-burnt">
+                  <span class="mstat-lbl">TOTAL CASH DESTROYED</span>
+                  <strong id="bomb-host-burnt-total" class="mstat-val text-gold">$0</strong>
+                  <span class="mstat-sub">Purged from the room</span>
+                </div>
+              </div>
+
+              <div class="bomb-exploded-victims-list" id="bomb-host-victims-list">
+                <!-- Injected via JS -->
+              </div>
+
+              <div class="bomb-modal-actions">
+                <button id="btn-continue-after-bomb" class="btn btn-arcade btn-huge">
+                  <span id="btn-continue-after-bomb-text">CONTINUE TO NEXT ROUND 🚀</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 7. END-OF-GAME SCREEN (AFTER FINAL ROUND OR EARLY TERMINATION) -->
+      <section id="view-endgame" class="host-view">
+        <div class="endgame-layout">
+          <div class="endgame-header">
+            <div class="hero-tag" id="endgame-hero-tag">🎉 MARKET ARENA CONCLUDED</div>
+            <h1 class="endgame-title">FINAL MARKET STANDINGS</h1>
+            <p class="endgame-subtitle" id="endgame-subtitle-text">The market floor is closed! Here is the final wealth leaderboard and tier distribution of the entire hall.</p>
+          </div>
+
+          <!-- Outcome Tier Distribution -->
+          <div class="endgame-tiers-grid" id="endgame-tiers-container">
+            <!-- Injected dynamically from endings.json -->
+          </div>
+
+          <!-- Final Grand Podium (Top 3) -->
+          <div class="endgame-podium-card">
+            <h2 class="podium-section-title">👑 GRAND PODIUM CHAMPIONS (TOP 3)</h2>
+            <div class="endgame-podium-list" id="endgame-podium-container">
+              <!-- Injected via JS -->
+            </div>
+          </div>
+
+          <!-- Complete Room Leaderboard (All 50-500 Traders) -->
+          <div class="endgame-leaderboard-card" id="endgame-leaderboard-card">
+            <div class="card-header-flex">
+              <h2 class="podium-section-title">📊 ALL TRADERS HALL OF FAME</h2>
+              <span class="badge-subtle" id="endgame-traders-count-badge">0 TRADERS</span>
+            </div>
+            <div class="endgame-full-leaderboard-table-wrapper">
+              <table class="endgame-table" id="endgame-table">
+                <thead>
+                  <tr>
+                    <th class="th-rank">RANK</th>
+                    <th class="th-trader">TRADER</th>
+                    <th class="th-title">TITLE</th>
+                    <th class="th-worth">FINAL NET WORTH</th>
+                    <th class="th-roi">RETURN %</th>
+                  </tr>
+                </thead>
+                <tbody id="endgame-full-leaderboard-body">
+                  <!-- Injected via JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="endgame-footer">
+            <button id="btn-restart-game" class="btn btn-emerald btn-huge">
+              <span>PLAY AGAIN ⚡</span>
+            </button>
+            <button id="btn-play-again-custom" class="btn btn-arcade btn-large">
+              <span>📁 UPLOAD NEW JSON & REPLAY</span>
+            </button>
+            <button id="btn-new-room" class="btn btn-ghost btn-large">
+              <span>CREATE NEW ARENA 🏠</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- MODAL: UPLOAD CUSTOM SCENARIO JSON (LOBBY & PLAY AGAIN) -->
+    <div id="modal-upload-scenario" class="modal-backdrop hidden">
+      <div class="modal-card">
+        <div class="modal-header">
+          <div class="modal-title-group">
+            <h3 class="modal-title">📁 Upload Custom Scenario (.json)</h3>
+            <span class="modal-subtitle">Load custom businesses & options instantly</span>
+          </div>
+          <button id="btn-close-scenario-modal" class="btn-close-modal">✕</button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-scenario-dropzone" id="modal-scenario-dropzone">
+            <input type="file" id="modal-input-scenario-file" accept=".json,application/json" class="file-input-hidden">
+            <div class="dropzone-content">
+              <div class="dropzone-icon">📄</div>
+              <div class="dropzone-text"><strong>Drag & drop scenario .json</strong> or <span class="browse-link">browse</span></div>
+              <div class="dropzone-sub">Upload custom businesses, analyst fees, and win conditions!</div>
+            </div>
+          </div>
+
+          <div id="modal-scenario-preview" class="scenario-preview-card hidden">
+            <div class="preview-header">
+              <div class="preview-title-row">
+                <span class="badge-custom">CUSTOM DECK</span>
+                <h4 id="modal-preview-scenario-name" class="preview-scenario-name">Custom Title</h4>
+              </div>
+            </div>
+            <p id="modal-preview-scenario-desc" class="preview-scenario-desc"></p>
+            <div class="preview-meta-chips">
+              <span class="preview-chip" id="modal-preview-rounds-chip">📊 10 Rounds</span>
+              <span class="preview-chip" id="modal-preview-start-chip">💵 Starting: $100,000</span>
+              <span class="preview-chip" id="modal-preview-target-chip">🎯 Target: $500,000</span>
+            </div>
+            <div class="preview-businesses-list" id="modal-preview-businesses-list"></div>
+          </div>
+
+          <div id="modal-scenario-error" class="status-msg error hidden"></div>
+        </div>
+        <div class="modal-footer">
+          <button id="btn-download-modal-template" class="btn btn-ghost btn-small">📥 Download Sample JSON</button>
+          <div class="modal-footer-actions">
+            <button id="btn-cancel-modal-scenario" class="btn btn-ghost btn-small">Cancel</button>
+            <button id="btn-apply-modal-scenario" class="btn btn-emerald btn-large" disabled>APPLY & LOAD SCENARIO 🚀</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 8. HOST END GAME EARLY CONFIRMATION MODAL -->
+    <div id="modal-end-game-early" class="modal-backdrop hidden">
+      <div class="modal-card modal-hazard-card">
+        <div class="modal-header">
+          <div class="modal-title-group">
+            <h3 class="modal-title text-coral">⚠️ END GAME IMMEDIATELY?</h3>
+            <span class="modal-subtitle">Terminate current match and reveal the final winners</span>
+          </div>
+          <button id="btn-close-endgame-modal" class="btn-close-modal">✕</button>
+        </div>
+        <div class="modal-body">
+          <p class="hazard-desc">
+            Ending the game early will immediately calculate final net worths, crown the Top 3 Podium Moguls, and deliver final scorecard receipts to all connected traders.
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btn-cancel-end-game" class="btn btn-ghost btn-small">Cancel & Resume Game</button>
+          <button type="button" id="btn-confirm-end-game" class="btn btn-coral btn-large">⏹️ YES, END GAME NOW & CROWN WINNERS</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="icons.js"></script>
+  <script src="sound-effects.js"></script>
+  <script src="confetti.js"></script>
+  <script src="host.js"></script>
+</body>
+</html>

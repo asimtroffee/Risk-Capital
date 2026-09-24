@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quick Cash — Opportunity Cards Showcase</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;600;700;800;900&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="opportunity-card.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 24px 16px;
+      background-color: #07090e;
+      background-image: 
+        radial-gradient(#101626 15%, transparent 16%),
+        radial-gradient(#18121e 15%, transparent 16%);
+      background-size: 8px 8px;
+      background-position: 0 0, 4px 4px;
+      color: #fff;
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      box-sizing: border-box;
+    }
+
+    .header-hud {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .header-title {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 20px;
+      color: #f6c445;
+      text-shadow: 3px 3px 0 #000;
+      margin: 0 0 10px 0;
+      letter-spacing: 1px;
+    }
+
+    .header-sub {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: #34d399;
+      text-shadow: 1px 1px 0 #000;
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
+    }
+
+    .timer-bar-container {
+      width: 100%;
+      max-width: 500px;
+      height: 12px;
+      background: #1f162b;
+      border: 2px solid #f6c445;
+      box-shadow: 0 0 0 2px #000;
+      margin: 0 auto 24px auto;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .timer-bar-fill {
+      height: 100%;
+      width: 100%;
+      background: linear-gradient(90deg, #10b981, #f59e0b, #ef4444);
+      transition: width 0.1s linear;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 320px));
+      gap: 32px;
+      justify-content: center;
+      width: 100%;
+      max-width: 1100px;
+      margin-bottom: 36px;
+    }
+
+    .controls-panel {
+      background: #18121e;
+      border: 3px solid #f6c445;
+      padding: 16px 20px;
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+      box-shadow: 0 6px 0 #000;
+    }
+
+    .btn-action {
+      background: #3b82f6;
+      border: 2px solid #000;
+      box-shadow: inset 1px 1px 0 #93c5fd, inset -1px -1px 0 #1d4ed8, 0 3px 0 #000;
+      color: #fff;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 10px;
+      padding: 10px 14px;
+      cursor: pointer;
+    }
+
+    .btn-action:hover {
+      background: #2563eb;
+    }
+
+    .btn-action:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 #000;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header-hud">
+    <h1 class="header-title">⚡ QUICK CASH — ROUND 1 ⚡</h1>
+    <div class="header-sub">COMMITMENT: 100% ALL-IN • TARGET: $500,000</div>
+    <div class="timer-bar-container">
+      <div id="timer-fill" class="timer-bar-fill"></div>
+    </div>
+  </div>
+
+  <!-- Cards Grid -->
+  <div class="cards-grid" id="cards-container"></div>
+
+  <!-- Debug & Test Controls -->
+  <div class="controls-panel">
+    <button class="btn-action" onclick="resetTimer()">🔄 RESET 15s TIMER</button>
+    <button class="btn-action" onclick="toggleDisable()">🛑 TOGGLE TIMEOUT (GRAYSCALE)</button>
+  </div>
+
+  <script src="pixel-sprites.js"></script>
+  <script>
+    const SAMPLE_PAYLOADS = [
+      {
+        industry: "Agriculture",
+        businessName: "Verdant Grain Silos",
+        riskTier: "Safe",
+        riskIcon: "shield",
+        borderColor: "green",
+        returnValue: "+15% / -5%",
+        imageUrl: "https://images.unsplash.com/photo-1574943320219-553eb213f72d",
+        description: "Municipal grain storage facilities backed by guaranteed sovereign crop insurance."
+      },
+      {
+        industry: "Logistics",
+        businessName: "Apex Freight Lines",
+        riskTier: "Medium Risk",
+        riskIcon: "scale",
+        borderColor: "amber",
+        returnValue: "+35% / -15%",
+        imageUrl: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d",
+        description: "Automated intermodal cold-chain fleet navigating peak season retail shipping routes."
+      },
+      {
+        industry: "Deep Tech",
+        businessName: "Harvest Spring Studio",
+        riskTier: "High Risk",
+        riskIcon: "skull",
+        borderColor: "red",
+        returnValue: "+70% / -35%",
+        imageUrl: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe",
+        description: "New Singapore-based venture studio launched to commercialize cutting-edge agtech solutions."
+      }
+    ];
+
+    let selectedIndex = 2; // Default select high risk to showcase glow
+    let timeLeft = 15;
+    let timerInterval = null;
+    let isDisabled = false;
+
+    function renderCards() {
+      const container = document.getElementById('cards-container');
+      container.innerHTML = '';
+
+      SAMPLE_PAYLOADS.forEach((card, index) => {
+        const isSafe = card.riskTier.toLowerCase().includes('safe');
+        const isMed = card.riskTier.toLowerCase().includes('med');
+        const riskClass = isSafe ? 'risk-safe' : isMed ? 'risk-medium' : 'risk-high';
+        const riskLabel = isSafe ? 'SAFE' : isMed ? 'MED' : 'HIGH';
+        const riskColor = isSafe ? '#34d399' : isMed ? '#fbbf24' : '#f87171';
+        const isSelected = selectedIndex === index;
+
+        const cardEl = document.createElement('div');
+        cardEl.className = `qc-card ${riskClass} ${isSelected ? 'selected' : ''} ${isDisabled ? 'disabled' : ''} pixelated`;
+        
+        cardEl.innerHTML = `
+          <span class="qc-gold-corner top-left"></span>
+          <span class="qc-gold-corner top-right"></span>
+          <span class="qc-gold-corner bottom-left"></span>
+          <span class="qc-gold-corner bottom-right"></span>
+
+          <!-- Top-Left Risk Icon Badge -->
+          <div class="qc-badge-circle top-left" title="Risk: ${card.riskTier}">
+            ${window.PixelSprites.getSpriteSvg(card.riskIcon, 26)}
+          </div>
+
+          <!-- Top-Right 15s Countdown -->
+          <div class="qc-badge-circle top-right-timer">
+            <div style="display:flex;align-items:center;gap:4px;">
+              ${window.PixelSprites.getSpriteSvg('hourglass', 14)}
+              <span class="qc-badge-text-timer" style="color:${timeLeft <= 3 ? '#ef4444' : '#fef08a'}">
+                ${timeLeft}s
+              </span>
+            </div>
+          </div>
+
+          <!-- Center Art Frame -->
+          <div class="qc-art-frame">
+            <img src="${card.imageUrl}" alt="${card.businessName}" class="pixelated" />
+          </div>
+
+          <!-- Title Ribbon -->
+          <div class="qc-title-ribbon">
+            <span class="qc-industry-tag">${card.industry}</span>
+            <h3>${card.businessName}</h3>
+          </div>
+
+          <!-- Parchment Text Box -->
+          <div class="qc-parchment-box">
+            <p>${card.description}</p>
+          </div>
+
+          <!-- Bottom-Left Risk Tier -->
+          <div class="qc-badge-circle bottom-left">
+            <span class="qc-badge-sublabel">RISK</span>
+            <span class="qc-badge-text-risk" style="color:${riskColor};">${riskLabel}</span>
+          </div>
+
+          <!-- Bottom-Right Return Value -->
+          <div class="qc-badge-circle bottom-right">
+            ${window.PixelSprites.getSpriteSvg('coin', 16)}
+            <span class="qc-badge-text-return">
+              ${card.returnValue}
+            </span>
+          </div>
+        `;
+
+        cardEl.onclick = () => {
+          if (isDisabled) return;
+          selectedIndex = index;
+          renderCards();
+        };
+
+        container.appendChild(cardEl);
+      });
+    }
+
+    function startTimer() {
+      if (timerInterval) clearInterval(timerInterval);
+      const timerFill = document.getElementById('timer-fill');
+
+      timerInterval = setInterval(() => {
+        if (timeLeft > 0 && !isDisabled) {
+          timeLeft--;
+          if (timerFill) {
+            timerFill.style.width = `${(timeLeft / 15) * 100}%`;
+          }
+          renderCards();
+        } else if (timeLeft <= 0) {
+          clearInterval(timerInterval);
+          isDisabled = true;
+          renderCards();
+        }
+      }, 1000);
+    }
+
+    function resetTimer() {
+      timeLeft = 15;
+      isDisabled = false;
+      const timerFill = document.getElementById('timer-fill');
+      if (timerFill) timerFill.style.width = '100%';
+      startTimer();
+      renderCards();
+    }
+
+    function toggleDisable() {
+      isDisabled = !isDisabled;
+      renderCards();
+    }
+
+    // Init
+    renderCards();
+    startTimer();
+  </script>
+</body>
+</html>

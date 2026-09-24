@@ -1,0 +1,40 @@
+{
+  "personas": [
+    {
+      "id": "victor_kane",
+      "name": "Victor Kane",
+      "role": "Influential Persona",
+      "affectedSectors": ["crypto", "electronics", "gaming"],
+      "tone": "Casual, cryptic, sudden ALL CAPS energy",
+      "hintStyle": "Vague, emotional, no numbers, unreliable",
+      "description": "A tech founder known for cryptic late-night posts. His hints never give away specifics — just vibes. Highest volatility of any persona, and the least predictable."
+    },
+    {
+      "id": "dr_eleanor_voss",
+      "name": "Dr. Eleanor Voss",
+      "role": "Regulatory",
+      "affectedSectors": ["crypto", "business_products_services"],
+      "tone": "Dry, formal, bureaucratic",
+      "hintStyle": "Leak two rounds before an announcement, always paired",
+      "description": "A financial regulator whose announcements are always preceded by an in-game 'leak.' The most learnable/predictable persona — rewards players who track her pattern."
+    },
+    {
+      "id": "iron_fund",
+      "name": "The Iron Fund",
+      "role": "Geopolitical / Industrial",
+      "affectedSectors": ["auto_parts", "chemicals", "agriculture"],
+      "tone": "Cold, institutional, third-person wire-report style",
+      "hintStyle": "Telegraphed a full round ahead of the actual move",
+      "description": "Not a person — a shadowy institutional investor bloc. Moves slower and bigger than Kane, but always telegraphed in advance."
+    },
+    {
+      "id": "dr_nadia_chen",
+      "name": "Dr. Nadia Chen",
+      "role": "Industrial / Tech Breakthroughs",
+      "affectedSectors": ["biotechnology", "electronics", "education"],
+      "tone": "Excitable, breathless, academic press-release style",
+      "hintStyle": "Mostly optimistic, occasionally overhyped and reverses a round or two later",
+      "description": "An eccentric research-lab director whose breakthrough announcements are usually good news — but her claims sometimes don't hold up under scrutiny."
+    }
+  ]
+}

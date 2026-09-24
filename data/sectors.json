@@ -1,0 +1,146 @@
+{
+  "sectors": [
+    {
+      "id": "agriculture",
+      "name": "Agriculture",
+      "category": "Commodities & Agriculture",
+      "type": "recurring",
+      "totalReturnPct": 10,
+      "maturityRounds": 12,
+      "riskTier": "low",
+      "volatilityPct": 5,
+      "color": "#10b981",
+      "description": "Stable agricultural yields paying steady per-round dividend cash flows."
+    },
+    {
+      "id": "auto_parts",
+      "name": "Auto / Parts",
+      "category": "Industrial Manufacturing",
+      "type": "locked",
+      "totalReturnPct": 56,
+      "maturityRounds": 6,
+      "riskTier": "high",
+      "volatilityPct": 20,
+      "color": "#f59e0b",
+      "description": "High-capital automotive supply chain contracts. High payout upon 6-round maturity."
+    },
+    {
+      "id": "biotechnology",
+      "name": "Biotechnology",
+      "category": "Healthcare & Life Sciences",
+      "type": "recurring",
+      "totalReturnPct": 34,
+      "maturityRounds": 12,
+      "riskTier": "medium",
+      "volatilityPct": 10,
+      "color": "#8b5cf6",
+      "description": "Pharmaceutical clinical trials delivering ongoing patent royalty distributions."
+    },
+    {
+      "id": "business_products_services",
+      "name": "Business Products & Services",
+      "category": "Commercial Services",
+      "type": "locked",
+      "totalReturnPct": 21,
+      "maturityRounds": 3,
+      "riskTier": "low",
+      "volatilityPct": 5,
+      "color": "#3b82f6",
+      "description": "B2B enterprise service contracts with fast 3-round locked turnaround."
+    },
+    {
+      "id": "chemicals",
+      "name": "Chemicals",
+      "category": "Heavy Industry",
+      "type": "locked",
+      "totalReturnPct": 75,
+      "maturityRounds": 12,
+      "riskTier": "high",
+      "volatilityPct": 20,
+      "color": "#ec4899",
+      "description": "Major petrochemical synthesis infrastructure. Massive 12-round locked windfall."
+    },
+    {
+      "id": "food_beverage",
+      "name": "Food & Beverage",
+      "category": "Consumer Staples",
+      "type": "recurring",
+      "totalReturnPct": 50,
+      "maturityRounds": 12,
+      "riskTier": "high",
+      "volatilityPct": 20,
+      "color": "#ef4444",
+      "description": "Global consumer food distribution generating high per-round revenue dividends."
+    },
+    {
+      "id": "education",
+      "name": "Education",
+      "category": "Public Infrastructure",
+      "type": "locked",
+      "totalReturnPct": 46,
+      "maturityRounds": 12,
+      "riskTier": "low",
+      "volatilityPct": 5,
+      "color": "#14b8a6",
+      "description": "Accredited university tech infrastructure. Secure long-term institutional return."
+    },
+    {
+      "id": "electronics",
+      "name": "Electronics",
+      "category": "Hardware & Chips",
+      "type": "locked",
+      "totalReturnPct": 4,
+      "maturityRounds": 6,
+      "riskTier": "low",
+      "volatilityPct": 5,
+      "color": "#6366f1",
+      "description": "Semiconductor fabrication bond. Conservative low-yield capital preservation."
+    },
+    {
+      "id": "gaming",
+      "name": "Gaming",
+      "category": "Interactive Media",
+      "type": "locked",
+      "totalReturnPct": 53,
+      "maturityRounds": 3,
+      "riskTier": "high",
+      "volatilityPct": 20,
+      "color": "#a855f7",
+      "description": "AAA studio title release. High short-term speculative locked upside."
+    },
+    {
+      "id": "health_beauty",
+      "name": "Health & Beauty",
+      "category": "Consumer Discretionary",
+      "type": "recurring",
+      "totalReturnPct": 21,
+      "maturityRounds": 12,
+      "riskTier": "low",
+      "volatilityPct": 5,
+      "color": "#f43f5e",
+      "description": "Established cosmetics retail network yielding reliable monthly dividends."
+    },
+    {
+      "id": "crypto",
+      "name": "Crypto",
+      "category": "Decentralized Finance",
+      "type": "locked",
+      "totalReturnPct": 70,
+      "maturityRounds": 3,
+      "riskTier": "high",
+      "volatilityPct": 25,
+      "color": "#06b6d4",
+      "description": "Algorithmic liquidity protocols. Extreme yield subject to major market sentiment."
+    }
+  ],
+  "quickTrade": {
+    "id": "quickTrade",
+    "name": "Overnight Liquidity",
+    "category": "Money Market",
+    "type": "instant",
+    "fixedReturnPct": 5,
+    "riskTier": "medium",
+    "color": "#06b6d4",
+    "description": "Instant same-round money market arbitrage (+5% / -5% random return, zero lockup)."
+  }
+}

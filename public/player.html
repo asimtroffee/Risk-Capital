@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Risk Capital - Trader Controller</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="player.css?v=5">
+  <link rel="stylesheet" href="opportunity-card.css?v=1">
+  <link rel="stylesheet" href="player-pixel-theme.css?v=1">
+</head>
+<body class="player-body">
+  <!-- Screen Flash FX for Outcome Reveal -->
+  <div id="screen-flash-fx" class="screen-flash-fx"></div>
+
+  <!-- Dynamic Arcade Grid Background -->
+  <div class="player-bg-fx">
+    <div class="player-grid-overlay"></div>
+  </div>
+
+  <div class="player-app">
+    
+    <!-- 1. FIXED TOP HUD (Chunky Neo-Brutalist Single Row) -->
+    <header id="player-hud" class="player-hud hidden">
+      <div class="hud-left">
+        <span class="hud-logo">RC ⚡</span>
+        <div class="hud-identity">
+          <span id="hud-nickname" class="hud-nickname">Trader</span>
+          <span id="hud-title-badge" class="hud-title-badge">The Cautious One</span>
+        </div>
+      </div>
+      
+      <!-- Mode 1 Sprint Goal Progress Bar -->
+      <div id="hud-sprint-container" class="hud-sprint-container">
+        <div class="hud-sprint-meta">
+          <span class="hud-sprint-label">🎯 SPRINT TO $500K</span>
+          <span id="hud-sprint-cash-text" class="hud-sprint-cash text-emerald">$100,000</span>
+        </div>
+        <div class="hud-sprint-track">
+          <div id="hud-sprint-bar" class="hud-sprint-bar" style="width: 20%;"></div>
+        </div>
+      </div>
+
+      <div class="hud-right">
+        <button id="btn-sound-toggle" class="hud-sound-btn" aria-label="Toggle Sound" title="Mute/Unmute Audio">
+          <span id="hud-sound-icon"></span>
+        </button>
+        <!-- Marathon Mode Portfolio Pill (Hidden in Mode 1) -->
+        <button id="btn-toggle-portfolio-drawer" class="hud-portfolio-pill" aria-expanded="false" aria-label="Toggle portfolio details">
+          <span class="hud-pill-segment">
+            <span class="hud-lbl">LIQ</span>
+            <span id="hud-cash-val" class="hud-val text-emerald">$100k</span>
+          </span>
+          <span class="hud-divider">|</span>
+          <span class="hud-pill-segment">
+            <span class="hud-lbl">LCK</span>
+            <span id="hud-locked-val" class="hud-val text-cyan">$0</span>
+          </span>
+          <span class="hud-chevron">▾</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- 2. COLLAPSIBLE PORTFOLIO DRAWER -->
+    <div id="portfolio-drawer" class="portfolio-drawer hidden">
+      <div class="drawer-inner">
+        <div class="drawer-header">
+          <div class="drawer-title-group">
+            <span class="drawer-tag">📊 CAPITAL VAULT</span>
+            <span class="drawer-title">PORTFOLIO PIPELINE</span>
+            <span id="drawer-networth" class="drawer-networth">Net Worth: $100,000</span>
+          </div>
+          <button id="btn-close-drawer" class="drawer-close-btn" aria-label="Close drawer">✕</button>
+        </div>
+        <div id="drawer-assets-list" class="drawer-assets-list">
+          <div class="drawer-empty-state">No locked investments. 100% of your capital is liquid!</div>
+        </div>
+      </div>
+    </div>
+    <div id="drawer-backdrop" class="drawer-backdrop hidden"></div>
+
+    <!-- 2B. COLLAPSIBLE FIELD DOSSIER MODAL -->
+    <div id="dossier-modal" class="dossier-modal hidden">
+      <div class="dossier-modal-inner">
+        <div class="dossier-modal-header">
+          <div class="dossier-title-group">
+            <span class="dossier-modal-tag">📖 FIELD DOSSIER</span>
+            <span id="dossier-modal-biz-name" class="dossier-modal-title">Business Dossier</span>
+          </div>
+          <button id="btn-close-dossier" class="dossier-close-btn" aria-label="Close dossier">✕</button>
+        </div>
+        <div class="dossier-modal-body">
+          <div class="dossier-bullet-item bullet-tailwinds">
+            <div class="dossier-bullet-icon">📈</div>
+            <div class="dossier-bullet-content">
+              <span class="dossier-bullet-label">MARKET TAILWINDS</span>
+              <p id="dossier-bullet-1">---</p>
+            </div>
+          </div>
+          <div class="dossier-bullet-item bullet-risk">
+            <div class="dossier-bullet-icon">⚠️</div>
+            <div class="dossier-bullet-content">
+              <span class="dossier-bullet-label">RISK FACTOR</span>
+              <p id="dossier-bullet-2">---</p>
+            </div>
+          </div>
+          <div class="dossier-bullet-item bullet-rumor">
+            <div class="dossier-bullet-icon">🕵️</div>
+            <div class="dossier-bullet-content">
+              <span class="dossier-bullet-label">UNVERIFIED RUMOR</span>
+              <p id="dossier-bullet-3">---</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="dossier-backdrop" class="dossier-backdrop hidden"></div>
+
+    <!-- 2C. ALLOCATION CONFIRMATION MODAL -->
+    <div id="modal-confirm-allocation" class="confirm-modal hidden">
+      <div class="confirm-modal-inner">
+        <div class="confirm-modal-header">
+          <div class="confirm-title-group">
+            <span class="confirm-tag">🔒 ORDER CONFIRMATION</span>
+            <span class="confirm-title">LOCK IN YOUR ALLOCATION</span>
+          </div>
+          <button type="button" id="btn-cancel-confirm-x" class="confirm-close-btn" aria-label="Cancel confirmation">✕</button>
+        </div>
+        <div class="confirm-modal-body">
+          <div class="confirm-asset-card" id="confirm-asset-card">
+            <div class="confirm-asset-header">
+              <span id="confirm-risk-badge" class="card-risk-pill">🔴 HIGH RISK (8/10)</span>
+              <span id="confirm-return-pill" class="card-return-pill badge-high">+100% / -60%</span>
+            </div>
+            <h3 id="confirm-asset-name" class="confirm-asset-name">Open 5 New Shops</h3>
+            <p id="confirm-asset-desc" class="confirm-asset-desc">Double your money or get shut down.</p>
+          </div>
+
+          <div class="confirm-amount-card">
+            <span class="confirm-amount-label">CAPITAL COMMITTED</span>
+            <span id="confirm-amount-val" class="confirm-amount-val text-emerald">$100,000</span>
+          </div>
+
+          <div class="confirm-math-grid">
+            <div class="confirm-math-col math-win-col">
+              <span class="story-label text-emerald">🟢 IF YOU WIN:</span>
+              <div id="confirm-win-delta" class="proj-delta text-emerald">+$100,000</div>
+              <div class="proj-total-row">
+                <span class="proj-sub">Balance:</span>
+                <strong id="confirm-win-total" class="proj-total-val text-emerald">$200,000</strong>
+              </div>
+            </div>
+            <div class="confirm-math-col math-loss-col">
+              <span class="story-label text-coral">🔴 IF YOU LOSE:</span>
+              <div id="confirm-loss-delta" class="proj-delta text-coral">-$60,000</div>
+              <div class="proj-total-row">
+                <span class="proj-sub">Balance:</span>
+                <strong id="confirm-loss-total" class="proj-total-val text-coral">$40,000</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="confirm-modal-actions">
+          <button type="button" id="btn-execute-order" class="btn-confirm-lockin">
+            <span>⚡ CONFIRM & LOCK IN ORDER</span>
+          </button>
+          <button type="button" id="btn-cancel-confirm" class="btn-cancel-order">
+            <span>✕ CANCEL / CHANGE SELECTION</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="confirm-backdrop" class="confirm-backdrop hidden"></div>
+
+    <!-- 3. NON-BLOCKING TOAST NOTIFICATIONS (Top Floating) -->
+    <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+    <!-- MAIN PLAYER SCREENS -->
+    <main class="player-main">
+      
+      <!-- SCREEN 1: JOIN & FREQUENCY GATEWAY -->
+      <section id="screen-join" class="player-screen active">
+        <div class="card-arcade join-box">
+          <div class="join-badge-header">ARCADE WALL STREET ⚡</div>
+          <h1 class="join-heading">JOIN THE ARENA</h1>
+          <p class="join-sub">Enter room code shown on the host screen</p>
+
+          <form id="form-join" class="join-form" autocomplete="off">
+            <div class="form-group">
+              <label for="input-room-code">4-LETTER ROOM CODE</label>
+              <div class="input-wrapper">
+                <input type="text" id="input-room-code" class="input-field code-input" placeholder="WXYZ" maxlength="4" required spellcheck="false" autocomplete="off" autocapitalize="characters">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="input-nickname">YOUR TRADER HANDLE</label>
+              <div class="input-wrapper">
+                <input type="text" id="input-nickname" class="input-field" placeholder="e.g. Satoshi" maxlength="16" required spellcheck="false" autocomplete="off">
+              </div>
+            </div>
+
+            <button type="submit" id="btn-join" class="btn btn-emerald btn-block">
+              <span>ENTER TRADING FLOOR 🚀</span>
+            </button>
+          </form>
+
+          <div id="join-error" class="error-banner hidden"></div>
+        </div>
+      </section>
+
+      <!-- SCREEN 2: LOBBY WAITING -->
+      <section id="screen-lobby" class="player-screen">
+        <div class="card-arcade lobby-box">
+          <div class="trader-avatar-ring">
+            <div class="trader-avatar">💼</div>
+          </div>
+          <div class="trader-greet">Welcome, <strong id="lobby-trader-name">Trader</strong>!</div>
+          <div class="room-tag">ROOM <span id="lobby-active-room" class="text-gold">----</span> <span class="sync-tag">• CONNECTED</span></div>
+
+          <div class="starting-capital-card">
+            <span class="cap-label">STARTING LIQUID CASH</span>
+            <span class="cap-val text-emerald">$100,000</span>
+          </div>
+
+          <div class="waiting-indicator">
+            <div class="arcade-spinner"></div>
+            <span>Waiting for Host to start Round 1...</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- SCREEN 3: DECISION WINDOW -->
+      <section id="screen-decision" class="player-screen">
+        <div class="decision-container">
+          <!-- Chunky Segmented Countdown Gauge -->
+          <div class="decision-timer-bar">
+            <div class="timer-info">
+              <span class="timer-tag" id="decision-round-tag">ROUND 1 • 40S SPRINT</span>
+              <span class="timer-num" id="decision-timer-wrapper"><strong id="decision-seconds" class="text-gold">40</strong>s</span>
+            </div>
+            <div class="timer-track">
+              <div id="decision-progress-fill" class="timer-fill"></div>
+            </div>
+          </div>
+
+          <!-- Opportunity Card Carousel Switcher (1 Master Card Display with 3 Choices) -->
+          <div class="card-carousel-wrapper">
+            <!-- 3 Deal Quick-Switch Tabs -->
+            <div class="deal-selector-tabs" id="deal-selector-tabs">
+              <button type="button" class="deal-tab-btn active" data-idx="0">
+                <span class="deal-tab-icon">🛡️</span>
+                <span class="deal-tab-label">1. SAFE</span>
+              </button>
+              <button type="button" class="deal-tab-btn" data-idx="1">
+                <span class="deal-tab-icon">⚖️</span>
+                <span class="deal-tab-label">2. BALANCED</span>
+              </button>
+              <button type="button" class="deal-tab-btn" data-idx="2">
+                <span class="deal-tab-icon">🚀</span>
+                <span class="deal-tab-label">3. HIGH RISK</span>
+              </button>
+            </div>
+
+            <!-- Single Card Stage with Tactical Left / Right Navigation Arrows -->
+            <div class="card-carousel-stage">
+              <button type="button" id="btn-card-prev" class="carousel-arrow-btn prev-btn" aria-label="Previous Deal">
+                <span class="arrow-symbol">◀</span>
+              </button>
+              
+              <div id="player-cards-container" class="single-card-viewport">
+                <!-- 1 Active Full-Size Master Opportunity Card injected dynamically -->
+              </div>
+
+              <button type="button" id="btn-card-next" class="carousel-arrow-btn next-btn" aria-label="Next Deal">
+                <span class="arrow-symbol">▶</span>
+              </button>
+            </div>
+
+            <!-- Deal Indicator Dots -->
+            <div class="deal-carousel-dots" id="deal-carousel-dots">
+              <span class="carousel-dot active" data-idx="0"></span>
+              <span class="carousel-dot" data-idx="1"></span>
+              <span class="carousel-dot" data-idx="2"></span>
+            </div>
+          </div>
+
+          <!-- Interactive Cash Allocation Slider (0% – 100%) -->
+          <div id="slider-allocation-card" class="slider-allocation-card">
+            <div class="slider-header-row">
+              <span class="slider-card-tag">💰 HOW MUCH MONEY WILL YOU INVEST?</span>
+              <span class="slider-live-pct" id="slider-pct-label">50%</span>
+            </div>
+
+            <!-- Live Dollar Split Display -->
+            <div class="slider-cash-split-grid">
+              <div class="split-box split-invested">
+                <span class="split-label">INVESTING IN DEAL:</span>
+                <strong class="split-val text-emerald" id="slider-invested-val">$50,000</strong>
+                <span class="split-sub" id="slider-invested-sub">(50% of your funds)</span>
+              </div>
+              <div class="split-box split-reserve">
+                <span class="split-label">SAFE IN BANK:</span>
+                <strong class="split-val text-gold" id="slider-reserve-val">$50,000</strong>
+                <span class="split-sub" id="slider-reserve-sub">(50% kept safe)</span>
+              </div>
+            </div>
+
+            <!-- Interactive Slider Input -->
+            <div class="slider-track-wrapper">
+              <input type="range" id="input-money-slider" class="arcade-money-slider" min="0" max="100" step="5" value="50" aria-label="Investment allocation slider">
+              <div class="slider-ticks-row">
+                <span>0% (PASS)</span>
+                <span>25%</span>
+                <span>50%</span>
+                <span>75%</span>
+                <span>100% (ALL IN)</span>
+              </div>
+            </div>
+
+            <!-- Preset Fast Tap Buttons -->
+            <div class="slider-preset-chips">
+              <button type="button" class="btn-slider-preset" data-pct="0">0% PASS (SAFE)</button>
+              <button type="button" class="btn-slider-preset" data-pct="25">25%</button>
+              <button type="button" class="btn-slider-preset active" data-pct="50">50%</button>
+              <button type="button" class="btn-slider-preset" data-pct="75">75%</button>
+              <button type="button" class="btn-slider-preset chip-all-in" data-pct="100">🔥 100% ALL-IN</button>
+            </div>
+
+            <!-- Live Projection Math Simulator -->
+            <div class="math-projections-grid">
+              <div class="math-projection-col math-win-col">
+                <div class="proj-label-row">
+                  <span class="proj-icon">🟢</span>
+                  <span class="proj-label">IF DEAL WINS <span id="math-win-pct-tag">(+15%)</span></span>
+                </div>
+                <div class="proj-delta text-emerald" id="math-win-delta">+$7,500</div>
+                <div class="proj-total-row">
+                  <span class="proj-sub">New Balance:</span>
+                  <strong class="proj-total-val text-emerald" id="math-win-total">$107,500</strong>
+                </div>
+              </div>
+
+              <div class="math-projection-col math-loss-col">
+                <div class="proj-label-row">
+                  <span class="proj-icon">🔴</span>
+                  <span class="proj-label">IF DEAL FAILS <span id="math-fail-pct-tag">(-5%)</span></span>
+                </div>
+                <div class="proj-delta text-coral" id="math-loss-delta">-$2,500</div>
+                <div class="proj-total-row">
+                  <span class="proj-sub">New Balance:</span>
+                  <strong class="proj-total-val text-coral" id="math-loss-total">$97,500</strong>
+                </div>
+              </div>
+            </div>
+
+            <!-- Action Button -->
+            <div class="slider-action-wrapper">
+              <button type="button" id="btn-lock-slider-order" class="btn-lock-slider-order">
+                <span id="btn-lock-slider-text">⚡ CONFIRM & LOCK IN $50,000 (50%) ALLOCATION</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SCREEN 4: SUBMITTED / WAITING RESOLUTION -->
+      <section id="screen-submitted" class="player-screen">
+        <div class="card-arcade submitted-box">
+          <div class="locked-icon-box">
+            <span class="locked-icon">🔒</span>
+          </div>
+          <h2 class="sub-title">LOCKED IN!</h2>
+          <p class="sub-desc">Your order is cryptographically recorded in the room ledger.</p>
+
+          <div class="locked-choice-badge" id="locked-choice-display">
+            <span class="locked-label">YOUR ALL-IN ALLOCATION</span>
+            <span class="locked-val" id="locked-choice-name">---</span>
+            <span class="locked-amount text-emerald" id="locked-choice-amount">Allocated: $100,000</span>
+          </div>
+
+          <div class="waiting-indicator">
+            <div class="arcade-spinner"></div>
+            <span>Waiting for market settlement...</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- SCREEN 5: "THE RECEIPT" ROUND RESULT -->
+      <section id="screen-result" class="player-screen">
+        <div class="receipt-wrapper">
+          <div class="card-receipt" id="card-receipt">
+            <div class="receipt-header">
+              <span class="receipt-title">MARKET SETTLEMENT RECEIPT</span>
+              <span id="result-badge-text" class="receipt-round">ROUND 1 RESULT</span>
+            </div>
+
+            <!-- Black Swan Shock Alert -->
+            <div id="receipt-shock-banner" class="receipt-shock-banner hidden">
+              <span class="shock-icon">⚡</span>
+              <span id="receipt-shock-tag" class="shock-tag">BLACK SWAN SHOCK EVENT!</span>
+            </div>
+
+            <div class="receipt-barcode">
+              <div class="barcode-lines"></div>
+            </div>
+
+            <div class="result-delta-card" id="result-delta-card">
+              <span class="delta-label">PORTFOLIO SHIFT</span>
+              <span class="delta-val" id="result-delta-val">+$0</span>
+              <span class="delta-pct" id="result-pct-val">(+0.0%)</span>
+            </div>
+
+            <div class="result-cash-card">
+              <span class="rcash-label">NEW LIQUID BALANCE</span>
+              <span class="rcash-val text-emerald" id="result-cash-val">$100,000</span>
+            </div>
+
+            <!-- Personalized Narrative Receipt Story -->
+            <div class="result-summary-box">
+              <div class="receipt-story-label">🧾 THE NARRATIVE RECEIPT:</div>
+              <p id="result-summary-text">---</p>
+            </div>
+
+            <div class="result-next-wait">
+              <div class="arcade-spinner-sm"></div>
+              <span>Waiting for Host to start next stage...</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SCREEN 6: LIQUIDITY BOMB (HOT POTATO) MINI-GAME -->
+      <section id="screen-bomb" class="player-screen">
+        <div class="bomb-screen-container" id="bomb-screen-container">
+          
+          <!-- Top Alert Header -->
+          <div class="bomb-alert-header">
+            <span class="bomb-hazard-icon">⚠️</span>
+            <span class="bomb-alert-title">LIQUIDITY BOMB SPRINT</span>
+            <span class="bomb-hazard-icon">⚠️</span>
+          </div>
+
+          <!-- Countdown Timer -->
+          <div class="bomb-timer-widget">
+            <div class="bomb-timer-digits" id="bomb-timer-digits">10</div>
+            <span class="bomb-timer-sub">SECONDS UNTIL DETONATION</span>
+            <div class="bomb-timer-track">
+              <div id="bomb-timer-bar" class="bomb-timer-fill"></div>
+            </div>
+          </div>
+
+          <!-- DYNAMIC STATE 1: PLAYER HAS THE BOMB -->
+          <div id="bomb-holder-view" class="bomb-state-view bomb-holder-active hidden">
+            <div class="bomb-pixel-avatar">
+              <div class="bomb-pulsing-fuse">💥</div>
+              <div class="bomb-pixel-icon">💣</div>
+            </div>
+            
+            <div class="bomb-holder-warning">
+              <h2 class="bomb-holder-title">YOU HAVE THE BOMB!</h2>
+              <p class="bomb-holder-desc">Toss it immediately or lose <strong class="text-coral">-$10,000</strong>!</p>
+            </div>
+
+            <button type="button" id="btn-pass-bomb" class="btn-giant-pass-bomb">
+              <span class="pass-bomb-text">💣 PASS THE BOMB!</span>
+              <span class="pass-bomb-sub">TAP ANYWHERE TO PASS TO A RANDOM TRADER</span>
+            </button>
+          </div>
+
+          <!-- DYNAMIC STATE 2: PLAYER IS SAFE -->
+          <div id="bomb-safe-view" class="bomb-state-view bomb-safe-active hidden">
+            <div class="safe-shield-avatar">
+              <span class="safe-shield-icon">🛡️</span>
+            </div>
+
+            <div class="bomb-safe-info">
+              <h2 class="bomb-safe-title">YOU ARE SAFE!</h2>
+              <p class="bomb-safe-subtitle">Don't touch the screen!</p>
+              <div class="panic-warning-card">
+                <span class="panic-warn-icon">🚫</span>
+                <span>Tapping while safe triggers <strong>-$500 Panic Fee</strong>!</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- DYNAMIC STATE 3: DETONATION RESULT -->
+          <div id="bomb-result-view" class="bomb-state-view bomb-result-box hidden">
+            <div id="bomb-result-icon" class="bomb-result-icon">💥</div>
+            <h2 id="bomb-result-title" class="bomb-result-title">DETONATED!</h2>
+            <div id="bomb-result-delta" class="bomb-result-delta text-coral">-$10,000</div>
+            <p id="bomb-result-desc" class="bomb-result-desc">The liquidity bomb detonated in your portfolio!</p>
+            <div class="bomb-cash-card">
+              <span class="bcash-lbl">NEW BALANCE:</span>
+              <strong id="bomb-result-cash" class="bcash-val text-emerald">$90,000</strong>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- SCREEN 7: FINAL END-OF-GAME SCORECARD (SHAREABLE 9:16 CARD) -->
+      <section id="screen-endgame" class="player-screen">
+        <div class="endgame-share-wrapper">
+          
+          <!-- Social-Ready Story Scorecard (9:16 Aspect Ratio) -->
+          <div id="shareable-story-card" class="story-card">
+            <div class="story-card-inner">
+              <div class="story-top-row">
+                <span class="story-logo">RISK CAPITAL ⚡</span>
+                <span id="story-room-code" class="story-room">ROOM WXYZ</span>
+              </div>
+
+              <div class="story-tier-badge" id="story-tier-badge">👑 MOGUL TIER</div>
+
+              <div class="story-profile-section">
+                <div class="story-avatar-ring">
+                  <div class="story-avatar">💼</div>
+                </div>
+                <h2 class="story-nickname" id="story-nickname">Trader</h2>
+                <div class="story-title-tag" id="story-final-title">THE GAMBLER</div>
+              </div>
+
+              <div class="story-stats-grid">
+                <div class="story-stat-card">
+                  <span class="story-stat-lbl">FINAL NET WORTH</span>
+                  <span class="story-stat-val text-gold" id="story-networth">$150,000</span>
+                </div>
+                <div class="story-stat-card">
+                  <span class="story-stat-lbl">ROOM RANK</span>
+                  <span class="story-stat-val text-cyan" id="story-rank">#1 / 50</span>
+                </div>
+              </div>
+
+              <div class="story-quote-box">
+                <p id="story-quote">"High-conviction speculation. When the ledger closed, you dominated the market."</p>
+              </div>
+
+              <div class="story-footer">
+                <span class="story-hashtag">#RiskCapitalParty</span>
+                <span class="story-watermark">Arcade Wall Street</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Share Instructions -->
+          <div class="share-prompt-box">
+            <span class="share-hint">📸 <strong>Screenshot this card</strong> to flex your net worth in the room!</span>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer Connection Indicator -->
+    <footer class="player-footer">
+      <div class="conn-status">
+        <span class="conn-dot"></span>
+        <span id="conn-text">Server Sync • Zero Polling</span>
+      </div>
+    </footer>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="icons.js"></script>
+  <script src="pixel-sprites.js"></script>
+  <script src="sound-effects.js"></script>
+  <script src="confetti.js"></script>
+  <script src="player.js?v=5"></script>
+</body>
+</html>

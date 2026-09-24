@@ -1,0 +1,42 @@
+[
+  {
+    "id": "tier_apex_mogul",
+    "title": "The Untouchable Moguls",
+    "minCash": 500000,
+    "maxCash": 999999999,
+    "description": "Smashed through the $500k ceiling. Either a savant or you blindly rode a rocket and survived.",
+    "color": "#fbbf24",
+    "badge": "👑 APEX MOGUL",
+    "themeClass": "tier-titan"
+  },
+  {
+    "id": "tier_private_jet",
+    "title": "The Comfortable Upper Class",
+    "minCash": 150000,
+    "maxCash": 499999,
+    "description": "Didn't take the ultimate crown, but walking out significantly richer than the rest of the room.",
+    "color": "#10b981",
+    "badge": "🍾 PRIVATE JET TIER",
+    "themeClass": "tier-capitalist"
+  },
+  {
+    "id": "tier_coffee_shop",
+    "title": "The Break-Even Survivors",
+    "minCash": 80000,
+    "maxCash": 149999,
+    "description": "Played with caution. Your net worth barely budged, but your dignity remains intact.",
+    "color": "#06b6d4",
+    "badge": "☕ COFFEE SHOP INVESTOR",
+    "themeClass": "tier-survivor"
+  },
+  {
+    "id": "tier_liquidated",
+    "title": "Liquidated Degenerates",
+    "minCash": 0,
+    "maxCash": 79999,
+    "description": "Rode every rocket into the ground. Your portfolio looks like a crime scene, but the stories were legendary.",
+    "color": "#ef4444",
+    "badge": "📉 GUYS BEHIND WENDY'S",
+    "themeClass": "tier-distressed"
+  }
+]

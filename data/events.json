@@ -1,0 +1,212 @@
+[
+  {
+    "roundIndex": 1,
+    "persona": {
+      "name": "Dr. Aris Vance",
+      "role": "Chief Macro Strategist, Global Fed",
+      "archetype": "Central Banker",
+      "avatar": "🏛️"
+    },
+    "headlineText": "CENTRAL BANK SIGNALS STABLE BENCHMARK COUPON RATES",
+    "bodyText": "Treasury yields expected to hold firm as sovereign debt liquidity remains guaranteed across major global economies.",
+    "affectedSectorIds": ["opt_safe"],
+    "hintStrength": "STRONG",
+    "probabilisticHint": "Sovereign debt coupon yields guaranteed at steady +3.0%."
+  },
+  {
+    "roundIndex": 2,
+    "persona": {
+      "name": "Elena Rostova",
+      "role": "Global Supply Chain Director",
+      "archetype": "Industrial Titan",
+      "avatar": "🚢"
+    },
+    "headlineText": "MARITIME CANAL CONGESTION BOOSTS FREIGHT SPOT RATES",
+    "bodyText": "Commercial shipping routes face surging container demand, unlocking windfall margins for logistics and freight operators.",
+    "affectedSectorIds": ["opt_balanced"],
+    "hintStrength": "STRONG",
+    "probabilisticHint": "Logistics operators well-positioned for double-digit performance."
+  },
+  {
+    "roundIndex": 3,
+    "persona": {
+      "name": "Kaelen Voss",
+      "role": "Lead Architect, Nexus Protocol",
+      "archetype": "DeFi Disruptor",
+      "avatar": "⚡"
+    },
+    "headlineText": "ALGORITHMIC LIQUIDITY PROTOCOL EXPANDS CROSS-CHAIN COLLATERAL",
+    "bodyText": "Speculative leverage floods decentralized protocols, driving extreme volatility between parabolic spikes and rapid drawdowns.",
+    "affectedSectorIds": ["opt_high"],
+    "hintStrength": "MODERATE",
+    "probabilisticHint": "High leverage creates massive upside potential alongside severe correction risk."
+  },
+  {
+    "roundIndex": 4,
+    "persona": {
+      "name": "Senator Marcus Sterling",
+      "role": "Senate Banking Committee Chair",
+      "archetype": "Regulator",
+      "avatar": "⚖️"
+    },
+    "headlineText": "REGULATORS WEIGH DIGITAL ASSET CAPITAL RESERVE MANDATES",
+    "bodyText": "Discussions on mandatory custodial collateral inject market uncertainty across speculative blockchain ventures.",
+    "affectedSectorIds": ["opt_high", "opt_safe"],
+    "hintStrength": "MODERATE",
+    "probabilisticHint": "Regulatory scrutiny may reward sovereign safety while punishing unhedged risk."
+  },
+  {
+    "roundIndex": 5,
+    "persona": {
+      "name": "Elena Rostova",
+      "role": "Global Supply Chain Director",
+      "archetype": "Industrial Titan",
+      "avatar": "🚢"
+    },
+    "headlineText": "AUTOMATED DEEP-SEA FREIGHT FLEETS REPORT RECORD TONNAGE",
+    "bodyText": "Industrial logistics networks capitalize on new trade corridors, generating consistent cash flow yields.",
+    "affectedSectorIds": ["opt_balanced"],
+    "hintStrength": "STRONG",
+    "probabilisticHint": "Commercial supply lines continue sustained revenue growth."
+  },
+  {
+    "roundIndex": 6,
+    "persona": {
+      "name": "Kaelen Voss",
+      "role": "Lead Architect, Nexus Protocol",
+      "archetype": "DeFi Disruptor",
+      "avatar": "⚡"
+    },
+    "headlineText": "VENTURE CAPITAL CONSORTIUM ANNOUNCES $10B ECOSYSTEM FUND",
+    "bodyText": "Fresh institutional liquidity fuels decentralized tech tokens, triggering aggressive retail momentum.",
+    "affectedSectorIds": ["opt_high"],
+    "hintStrength": "MODERATE",
+    "probabilisticHint": "Ecosystem inflows support bullish breakout scenarios."
+  },
+  {
+    "roundIndex": 7,
+    "persona": {
+      "name": "Dr. Aris Vance",
+      "role": "Chief Macro Strategist, Global Fed",
+      "archetype": "Central Banker",
+      "avatar": "🏛️"
+    },
+    "headlineText": "GLOBAL CURRENCY SWAP LINES EXPAND TREASURY DEMAND",
+    "bodyText": "International central banks coordinate swap facilities, reinforcing government bond price resilience.",
+    "affectedSectorIds": ["opt_safe"],
+    "hintStrength": "STRONG",
+    "probabilisticHint": "Sovereign coupons remain the safest defensive harbour."
+  },
+  {
+    "roundIndex": 8,
+    "persona": {
+      "name": "Senator Marcus Sterling",
+      "role": "Senate Banking Committee Chair",
+      "archetype": "Regulator",
+      "avatar": "⚖️"
+    },
+    "headlineText": "ANTITRUST PROBE INITIATED INTO MARITIME FREIGHT CONSORTIUMS",
+    "bodyText": "Scrutiny on container shipping surcharges creates mild headwinds for logistics fleets.",
+    "affectedSectorIds": ["opt_balanced"],
+    "hintStrength": "SUBTLE",
+    "probabilisticHint": "Margins may face temporary compliance friction."
+  },
+  {
+    "roundIndex": 9,
+    "persona": {
+      "name": "Kaelen Voss",
+      "role": "Lead Architect, Nexus Protocol",
+      "archetype": "DeFi Disruptor",
+      "avatar": "⚡"
+    },
+    "headlineText": "FLASH-CRASH VULNERABILITY PATCHED AFTER MEMPOOL EXPLOIT",
+    "bodyText": "Smart contracts stabilized following temporary network congestion and flash volatility.",
+    "affectedSectorIds": ["opt_high"],
+    "hintStrength": "MODERATE",
+    "probabilisticHint": "Extreme dispersion between winners and liquidations."
+  },
+  {
+    "roundIndex": 10,
+    "persona": {
+      "name": "Elena Rostova",
+      "role": "Global Supply Chain Director",
+      "archetype": "Industrial Titan",
+      "avatar": "🚢"
+    },
+    "headlineText": "CROSS-CONTINENTAL RAILWAY LINK UNLOCKS ARCTIC TRANSIT",
+    "bodyText": "Strategic logistics infrastructure cuts delivery lead times by 40%, generating premium freight pricing.",
+    "affectedSectorIds": ["opt_balanced"],
+    "hintStrength": "STRONG",
+    "probabilisticHint": "Logistics sector fundamentals remain highly lucrative."
+  },
+  {
+    "roundIndex": 11,
+    "persona": {
+      "name": "Dr. Aris Vance",
+      "role": "Chief Macro Strategist, Global Fed",
+      "archetype": "Central Banker",
+      "avatar": "🏛️"
+    },
+    "headlineText": "CENTRAL BANK REAFFIRMS ZERO-DEFAULT SOVEREIGN BACKSTOP",
+    "bodyText": "Government bond holders assured of full par redemption and unbroken interest payments.",
+    "affectedSectorIds": ["opt_safe"],
+    "hintStrength": "STRONG",
+    "probabilisticHint": "Guaranteed low-risk steady capital preservation."
+  },
+  {
+    "roundIndex": 12,
+    "persona": {
+      "name": "Senator Marcus Sterling",
+      "role": "Senate Banking Committee Chair",
+      "archetype": "Regulator",
+      "avatar": "⚖️"
+    },
+    "headlineText": "COMPREHENSIVE FINANCIAL STABILITY ACCORD FINALIZED",
+    "bodyText": "Clear regulatory taxonomy unlocks institutional confidence across multiple asset classes.",
+    "affectedSectorIds": ["opt_safe", "opt_balanced"],
+    "hintStrength": "MODERATE",
+    "probabilisticHint": "Broad market stabilization across traditional sectors."
+  },
+  {
+    "roundIndex": 13,
+    "persona": {
+      "name": "Kaelen Voss",
+      "role": "Lead Architect, Nexus Protocol",
+      "archetype": "DeFi Disruptor",
+      "avatar": "⚡"
+    },
+    "headlineText": "MAINNET 3.0 LAUNCH IGNITES MASS SPECULATIVE FRENZY",
+    "bodyText": "Next-generation throughput upgrades trigger parabolic volume surges across ecosystem tokens.",
+    "affectedSectorIds": ["opt_high"],
+    "hintStrength": "STRONG",
+    "probabilisticHint": "High-risk traders positioned for dramatic outcome variance."
+  },
+  {
+    "roundIndex": 14,
+    "persona": {
+      "name": "Elena Rostova",
+      "role": "Global Supply Chain Director",
+      "archetype": "Industrial Titan",
+      "avatar": "🚢"
+    },
+    "headlineText": "YEAR-END GLOBAL TRADE VOLUME EXCEEDS ALL FORECASTS",
+    "bodyText": "Global industrial logistics fleets report peak capacity utilization across all trade lanes.",
+    "affectedSectorIds": ["opt_balanced"],
+    "hintStrength": "STRONG",
+    "probabilisticHint": "Strong balanced returns expected in the penultimate cycle."
+  },
+  {
+    "roundIndex": 15,
+    "persona": {
+      "name": "Dr. Aris Vance",
+      "role": "Chief Macro Strategist, Global Fed",
+      "archetype": "Central Banker",
+      "avatar": "🏛️"
+    },
+    "headlineText": "FINAL MARKET SETTLEMENT: FISCAL CYCLE CLOSING BELL",
+    "bodyText": "The 15th cycle closes today. All portfolios settle permanently into the historical ledger.",
+    "affectedSectorIds": ["opt_safe", "opt_balanced", "opt_high"],
+    "hintStrength": "STRONG",
+    "probabilisticHint": "Final opportunity to solidify room rankings and ending titles."
+  }
+]

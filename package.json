@@ -1,0 +1,25 @@
+{
+  "name": "risk-capital",
+  "version": "1.0.0",
+  "description": "Jackbox-style multiplayer investment web game designed for 500+ concurrent players",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node test-all-suites.js",
+    "test:sim": "node test-simulation.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "lucide": "^1.47.0",
+    "pg": "^8.23.0",
+    "pg-format": "^1.0.4",
+    "socket.io": "^4.7.5"
+  },
+  "devDependencies": {
+    "pg-mem": "^3.0.14",
+    "socket.io-client": "^4.7.5"
+  }
+}

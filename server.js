@@ -2478,6 +2478,25 @@ io.on('connection', (socket) => {
     console.log(`[Player Joined] ${player.nickname} (${player.id}) joined Room ${code}. Total: ${room.players.size}`);
   });
 
+  socket.on('player:leaveRoom', ({ roomCode, playerId }, callback) => {
+    if (roomCode) {
+      const code = roomCode.toUpperCase().trim();
+      socket.leave(`room:${code}`);
+      const room = rooms.get(code);
+      if (room && playerId) {
+        const player = room.players.get(playerId);
+        if (player) {
+          player.isConnected = false;
+        }
+        io.to(`host:${code}`).emit('host:playerCountUpdate', {
+          count: room.players.size,
+          recentLeave: player ? player.nickname : 'Trader'
+        });
+      }
+    }
+    if (typeof callback === 'function') callback({ success: true });
+  });
+
   socket.on('player:hireAnalyst', ({ roomCode, playerId }, callback) => {
     if (!roomCode || !playerId) {
       const resp = { success: false, error: 'Room code and Player ID are required' };

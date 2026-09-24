@@ -137,7 +137,7 @@
   const receiptAnalystStatusTag = document.getElementById('receipt-analyst-status-tag');
   const receiptAnalystTruthText = document.getElementById('receipt-analyst-truth-text');
 
-  // DOM Elements - Endgame Scorecard
+  // DOM Elements - Endgame Scorecard & Exit
   const storyRoomCode = document.getElementById('story-room-code');
   const storyTierBadge = document.getElementById('story-tier-badge');
   const storyNickname = document.getElementById('story-nickname');
@@ -145,6 +145,78 @@
   const storyNetworth = document.getElementById('story-networth');
   const storyRank = document.getElementById('story-rank');
   const storyQuote = document.getElementById('story-quote');
+  const btnHudLeave = document.getElementById('btn-hud-leave');
+  const btnLeaveLobby = document.getElementById('btn-leave-lobby');
+  const btnExitGame = document.getElementById('btn-exit-game');
+
+  // Exit Game & Leave Room Controller
+  function exitGameSession() {
+    if (window.SoundManager) {
+      window.SoundManager.playButtonTap();
+    }
+    if (timerInterval) clearInterval(timerInterval);
+    if (bombTimerInterval) clearInterval(bombTimerInterval);
+
+    // Notify server to disconnect from room
+    if (currentRoomCode) {
+      socket.emit('player:leaveRoom', {
+        roomCode: currentRoomCode,
+        playerId: playerUUID
+      });
+    }
+
+    // Reset local room state & storage
+    currentRoomCode = null;
+    selectedOptionId = null;
+    sessionStorage.removeItem('rc_room_code');
+    localStorage.removeItem('rc_room_code');
+
+    // Close any open modals/drawers
+    if (portfolioDrawer) portfolioDrawer.classList.add('hidden');
+    if (drawerBackdrop) drawerBackdrop.classList.add('hidden');
+    if (dossierModal) dossierModal.classList.add('hidden');
+    if (dossierBackdrop) dossierBackdrop.classList.add('hidden');
+    const modalConfirm = document.getElementById('modal-confirm-allocation');
+    const confirmBackdrop = document.getElementById('confirm-backdrop');
+    if (modalConfirm) modalConfirm.classList.add('hidden');
+    if (confirmBackdrop) confirmBackdrop.classList.add('hidden');
+    if (playerHud) playerHud.classList.add('hidden');
+
+    // Reset join form error & room input
+    if (joinError) {
+      joinError.textContent = '';
+      joinError.classList.add('hidden');
+    }
+    if (inputRoomCode) {
+      inputRoomCode.value = '';
+    }
+
+    // Return to Join Gateway
+    showScreen(screenJoin);
+  }
+
+  if (btnHudLeave) {
+    btnHudLeave.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (confirm('Leave this game room and return to the main lobby?')) {
+        exitGameSession();
+      }
+    });
+  }
+
+  if (btnLeaveLobby) {
+    btnLeaveLobby.addEventListener('click', (e) => {
+      e.stopPropagation();
+      exitGameSession();
+    });
+  }
+
+  if (btnExitGame) {
+    btnExitGame.addEventListener('click', (e) => {
+      e.stopPropagation();
+      exitGameSession();
+    });
+  }
 
   // Initialize Sound Toggle UI
   function updateSoundIcon() {

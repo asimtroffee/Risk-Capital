@@ -171,7 +171,7 @@ body.player-body {
   gap: 8px;
 }
 
-.hud-sound-btn {
+.hud-sound-btn, .hud-leave-btn {
   background: var(--p-surface-low);
   border: 2px solid #000;
   border-radius: 8px;
@@ -183,10 +183,19 @@ body.player-body {
   cursor: pointer;
   color: var(--p-text);
   box-shadow: 0 3px 0 #000;
-  transition: transform 0.1s ease;
+  transition: transform 0.1s ease, background 0.15s ease;
 }
 
-.hud-sound-btn:active {
+.hud-leave-btn {
+  font-size: 1rem;
+}
+
+.hud-leave-btn:hover {
+  background: rgba(255, 77, 77, 0.2);
+  border-color: #ff4d4d;
+}
+
+.hud-sound-btn:active, .hud-leave-btn:active {
   transform: translateY(2px);
   box-shadow: 0 1px 0 #000;
 }
@@ -1543,6 +1552,58 @@ body.player-body {
   color: var(--p-text);
   text-align: center;
   box-shadow: 0 3px 0 #000;
+  width: 100%;
+  max-width: 360px;
+}
+
+.endgame-actions-box {
+  width: 100%;
+  max-width: 360px;
+}
+
+.btn-exit-action {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  padding: 16px;
+  border: 3px solid #000;
+  border-radius: 14px;
+  box-shadow: 0 5px 0 #000;
+  cursor: pointer;
+}
+
+.btn-exit-action:active {
+  transform: translateY(3px);
+  box-shadow: 0 2px 0 #000;
+}
+
+.lobby-leave-wrapper {
+  margin-top: 18px;
+  text-align: center;
+}
+
+.btn-leave-lobby {
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  color: var(--p-dim);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-leave-lobby:hover {
+  background: rgba(255, 77, 77, 0.15);
+  border-color: #ff4d4d;
+  color: #ff6b6b;
+}
+
+.btn-leave-lobby:active {
+  transform: translateY(2px);
 }
 
 /* Footer */

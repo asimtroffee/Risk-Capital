@@ -60,6 +60,9 @@
           </span>
           <span class="hud-chevron">▾</span>
         </button>
+        <button id="btn-hud-leave" class="hud-leave-btn" aria-label="Exit Room" title="Exit Room">
+          <span class="hud-leave-icon">🚪</span>
+        </button>
       </div>
     </header>
 
@@ -228,6 +231,12 @@
           <div class="waiting-indicator">
             <div class="arcade-spinner"></div>
             <span>Waiting for Host to start Round 1...</span>
+          </div>
+
+          <div class="lobby-leave-wrapper">
+            <button type="button" id="btn-leave-lobby" class="btn-leave-lobby">
+              <span>✕ LEAVE ROOM / CHANGE CODE</span>
+            </button>
           </div>
         </div>
       </section>
@@ -548,6 +557,13 @@
           <!-- Share Instructions -->
           <div class="share-prompt-box">
             <span class="share-hint">📸 <strong>Screenshot this card</strong> to flex your net worth in the room!</span>
+          </div>
+
+          <!-- Action Buttons: Exit Game / Join New Game -->
+          <div class="endgame-actions-box">
+            <button type="button" id="btn-exit-game" class="btn btn-emerald btn-block btn-exit-action">
+              <span>🚪 EXIT GAME & JOIN NEW GAME 🚀</span>
+            </button>
           </div>
         </div>
       </section>

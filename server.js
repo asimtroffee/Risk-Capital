@@ -274,12 +274,65 @@ function validateMode1CustomScenarios(data) {
   };
 }
 
+// Industry-specific distinct photo library
+const sectorDistinctPhotos = {
+  'Agriculture': {
+    safe: 'https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=600&h=800&fit=crop',
+    med: 'https://images.unsplash.com/photo-1536657464919-892534f60d6e?w=600&h=800&fit=crop',
+    high: 'https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=600&h=800&fit=crop'
+  },
+  'Auto / Parts': {
+    safe: 'https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=600&h=800&fit=crop',
+    med: 'https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=600&h=800&fit=crop',
+    high: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=600&h=800&fit=crop'
+  },
+  'Biotechnology': {
+    safe: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=800&fit=crop',
+    med: 'https://images.unsplash.com/photo-1559757175-7cb056fba93d?w=600&h=800&fit=crop',
+    high: 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=600&h=800&fit=crop'
+  },
+  'Business Products & Services': {
+    safe: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=600&h=800&fit=crop',
+    med: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=800&fit=crop',
+    high: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&h=800&fit=crop'
+  },
+  'Chemicals': {
+    safe: 'https://images.unsplash.com/photo-1615486364076-c2e1c8b4a99b?w=600&h=800&fit=crop',
+    med: 'https://images.unsplash.com/photo-1603126857599-f6e157fa2fe6?w=600&h=800&fit=crop',
+    high: 'https://images.unsplash.com/photo-1507668077129-56e32842fceb?w=600&h=800&fit=crop'
+  },
+  'Food & Beverage': {
+    safe: 'https://images.unsplash.com/photo-1542838132-92c53300491e?w=600&h=800&fit=crop',
+    med: 'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=600&h=800&fit=crop',
+    high: 'https://images.unsplash.com/photo-1550583724-b2692b85b150?w=600&h=800&fit=crop'
+  },
+  'Education': {
+    safe: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600&h=800&fit=crop',
+    med: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&h=800&fit=crop',
+    high: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&h=800&fit=crop'
+  },
+  'Electronics': {
+    safe: 'https://images.unsplash.com/photo-1555664424-778a1e5e1b48?w=600&h=800&fit=crop',
+    med: 'https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?w=600&h=800&fit=crop',
+    high: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=800&fit=crop'
+  },
+  'Gaming': {
+    safe: 'https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?w=600&h=800&fit=crop',
+    med: 'https://images.unsplash.com/photo-1592478411213-6153e4ebc07d?w=600&h=800&fit=crop',
+    high: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?w=600&h=800&fit=crop'
+  },
+  'Health & Beauty': {
+    safe: 'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=600&h=800&fit=crop',
+    med: 'https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=600&h=800&fit=crop',
+    high: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=600&h=800&fit=crop'
+  }
+};
+
 // 5 Curated 10-Deal Scenario Packs (Dividing 50 Real-World Opportunities into 5 Sets)
 function getScenarioPack(setNumber = 1) {
-  const allOpps = mode1Config.allOpportunities || [];
-  const setIdx = Math.max(1, Math.min(5, Number(setNumber) || 1)) - 1;
-  const setOpps = allOpps.slice(setIdx * 10, (setIdx + 1) * 10);
-  
+  const setNum = Math.max(1, Math.min(5, Number(setNumber) || 1));
+  const setIdx = setNum - 1;
+
   const setNames = [
     'Set 1: AgriTech & Smart Mobility',
     'Set 2: BioTech & Enterprise B2B',
@@ -288,13 +341,34 @@ function getScenarioPack(setNumber = 1) {
     'Set 5: Gaming & Beauty Mogul'
   ];
 
+  // Set 1 defaults to the fully curated 10-round 30-deal master deck
+  if (setNum === 1 && mode1Rounds && mode1Rounds.length >= 10) {
+    return {
+      setNumber: 1,
+      name: setNames[0],
+      description: '10-Round Real-World Sprint (Agriculture & Auto / Parts).',
+      startingCapital: 100000,
+      targetCapital: 500000,
+      maxRounds: 10,
+      timerSeconds: 40,
+      rounds: mode1Rounds
+    };
+  }
+
+  const allOpps = mode1Config.allOpportunities || [];
+  const setOpps = allOpps.slice(setIdx * 10, (setIdx + 1) * 10);
+
   const setRounds = setOpps.map((opp, idx) => {
     const roundNum = idx + 1;
+    const ind = opp.industry || 'Business Products & Services';
+    const photos = sectorDistinctPhotos[ind] || sectorDistinctPhotos['Business Products & Services'];
+
     const riskScore = Number(opp.riskScore) || (opp.riskTier === 'High Risk' ? 8 : opp.riskTier === 'Medium Risk' ? 5 : 2);
     const win = opp.win !== undefined ? Number(opp.win) : Math.round(riskScore * 20);
     const fail = opp.fail !== undefined ? Number(opp.fail) : -Math.round(riskScore * 9);
     const riskTier = opp.riskTier || (riskScore >= 7 ? 'High Risk' : riskScore >= 4 ? 'Medium Risk' : 'Safe');
 
+    // Generate 3 unique opportunities per round with 3 distinct Unsplash images
     return {
       round: roundNum,
       business: {
@@ -320,30 +394,30 @@ function getScenarioPack(setNumber = 1) {
         winText: `${opp.name} succeeded (+${win}%)!`,
         failText: `${opp.name} struggled (${fail}%)!`,
         description: opp.description || '',
-        imageUrl: opp.imageUrl || ''
+        imageUrl: opp.imageUrl || photos.high
       },
       options: [
         {
-          id: `opt_safe_r${roundNum}`,
-          name: `Safe ${opp.industry} Yield`,
+          id: `opt_safe_s${setNum}_r${roundNum}`,
+          name: `Safe ${opp.industry} Commercial Bond`,
           industry: opp.industry,
           riskTier: 'Safe',
           riskScore: 2,
           win: 12,
           fail: -4,
-          imageUrl: opp.imageUrl || '',
-          description: `Guaranteed commercial yield deposit in ${opp.industry}.`
+          imageUrl: photos.safe,
+          description: `Guaranteed commercial debt yield with institutional capital protection in ${opp.industry}.`
         },
         {
-          id: `opt_med_r${roundNum}`,
-          name: `Balanced ${opp.industry} Growth`,
+          id: `opt_med_s${setNum}_r${roundNum}`,
+          name: `Balanced ${opp.industry} Syndicate`,
           industry: opp.industry,
           riskTier: 'Medium Risk',
           riskScore: 5,
           win: 28,
           fail: -12,
-          imageUrl: opp.imageUrl || '',
-          description: `Balanced syndicate portfolio in ${opp.industry}.`
+          imageUrl: photos.med,
+          description: `Diversified regional growth fund investing in mid-stage ${opp.industry} companies.`
         },
         {
           id: opp.id || `opp_s${setIdx + 1}_r${roundNum}`,
@@ -353,16 +427,16 @@ function getScenarioPack(setNumber = 1) {
           riskScore: riskScore,
           win: win,
           fail: fail,
-          imageUrl: opp.imageUrl || '',
-          description: opp.description || ''
+          imageUrl: opp.imageUrl || photos.high,
+          description: opp.description || `Direct high-conviction equity deal in ${opp.name}.`
         }
       ]
     };
   });
 
   return {
-    setNumber: setIdx + 1,
-    name: setNames[setIdx] || `Set ${setIdx + 1}`,
+    setNumber: setNum,
+    name: setNames[setIdx] || `Set ${setNum}`,
     description: `10-Round Real-World Sprint (${setOpps.map(o => o.industry).filter((v, i, a) => a.indexOf(v) === i).join(' & ')}).`,
     startingCapital: 100000,
     targetCapital: 500000,
